@@ -3,7 +3,7 @@
 
 # https://github.com/haproxytech/config-parser
 %global goipath         github.com/haproxytech/config-parser
-Version:                2.0.0-dev4
+Version:                1.1.10
 
 %gometa
 
@@ -51,6 +51,6 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
-* Wed Nov 13 12:24:21 UTC 2019 mockbuild - 2.0.0-dev4-1
+* Wed Nov 13 12:34:58 UTC 2019 mockbuild - 1.1.10-1
 - Initial package
 
