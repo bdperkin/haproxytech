@@ -63,6 +63,7 @@ BuildRequires:  golang(github.com/sirupsen/logrus)
 BuildRequires:  golang(golang.org/x/net/netutil)
 BuildRequires:  golang(golang.org/x/sys/unix)
 
+Requires:         haproxy
 Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
@@ -85,7 +86,6 @@ done
 install -m 0755 -vd                      %{buildroot}%{_sbindir}
 install -m 0755 -vp %{gobuilddir}/sbin/* %{buildroot}%{_sbindir}/
 
-install -d -m 0755 %{buildroot}%{haproxy_homedir}
 install -d -m 0755 %{buildroot}%{_unitdir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/logrotate.d
 install -d -m 0755 %{buildroot}%{_sysconfdir}/sysconfig
@@ -97,14 +97,6 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %check
 %gocheck
 %endif
-
-%pre
-getent group %{haproxy_group} >/dev/null || \
-    groupadd -r %{haproxy_group}
-getent passwd %{haproxy_user} >/dev/null || \
-    useradd -r -g %{haproxy_user} -d %{haproxy_homedir} \
-    -s /sbin/nologin -c "haproxy" %{haproxy_user}
-exit 0
 
 %post
 %systemd_post %{gorepo}.service
@@ -119,7 +111,6 @@ exit 0
 %defattr(-,root,root,-)
 %license LICENSE
 %doc CONTRIBUTING.md README.md
-%dir %{haproxy_homedir}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{gorepo}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{gorepo}
 %{_unitdir}/%{gorepo}.service
