@@ -64,10 +64,10 @@ DATAPLANEAPI_HAPROXY_BIN="/usr/sbin/haproxy"
 DATAPLANEAPI_RELOAD_DELAY="5"
 
 # Reload command
-DATAPLANEAPI_RELOAD_CMD="service haproxy reload"
+DATAPLANEAPI_RELOAD_CMD="systemctl reload haproxy"
 
 # Restart command
-DATAPLANEAPI_RESTART_CMD="service haproxy restart"
+DATAPLANEAPI_RESTART_CMD="systemctl restart haproxy"
 
 #      --reload-retention=  Reload retention in days, every older reload id
 #                           will be deleted (default: 1)
