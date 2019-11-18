@@ -63,7 +63,7 @@ BuildRequires:  golang(github.com/sirupsen/logrus)
 BuildRequires:  golang(golang.org/x/net/netutil)
 BuildRequires:  golang(golang.org/x/sys/unix)
 
-Requires:         haproxy
+Requires:         haproxy >= 1.9
 Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
