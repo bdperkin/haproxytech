@@ -62,6 +62,7 @@ BuildRequires:  golang(github.com/shirou/gopsutil/mem)
 BuildRequires:  golang(github.com/sirupsen/logrus)
 BuildRequires:  golang(golang.org/x/net/netutil)
 BuildRequires:  golang(golang.org/x/sys/unix)
+BuildRequires:  systemd-units
 
 Requires:         haproxy >= 1.9
 Requires(post):   systemd
