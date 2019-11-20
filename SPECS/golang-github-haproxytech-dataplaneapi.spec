@@ -21,7 +21,7 @@ HAProxy Data Plane API.}
 %global godocs          CONTRIBUTING.md README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        HAProxy Data Plane API
 
 Group:          System Environment/Daemons
@@ -63,6 +63,8 @@ BuildRequires:  golang(github.com/sirupsen/logrus)
 BuildRequires:  golang(golang.org/x/net/netutil)
 BuildRequires:  golang(golang.org/x/sys/unix)
 BuildRequires:  systemd-units
+BuildRequires:  help2man
+BuildRequires:  gzip
 
 Requires:         haproxy >= 1.9
 Requires(post):   systemd
@@ -81,11 +83,16 @@ Requires(postun): systemd
 for cmd in cmd/* ; do
   %gobuild -o %{gobuilddir}/sbin/$(basename $cmd) %{goipath}/$cmd
 done
+mkdir -p %{gobuilddir}/share/man/man8
+help2man -n "%{summary}" -s 8 -o %{gobuilddir}/share/man/man8/%{gorepo}.8 -N --version-string="%{version}" %{gobuilddir}/sbin/%{gorepo}
+gzip %{gobuilddir}/share/man/man8/%{gorepo}.8
 
 %install
 %gopkginstall
 install -m 0755 -vd                      %{buildroot}%{_sbindir}
 install -m 0755 -vp %{gobuilddir}/sbin/* %{buildroot}%{_sbindir}/
+install -m 0755 -vd                                %{buildroot}%{_mandir}/man8
+install -m 0644 -vp %{gobuilddir}/share/man/man8/* %{buildroot}%{_mandir}/man8/
 
 install -d -m 0755 %{buildroot}%{_unitdir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/logrotate.d
@@ -112,6 +119,7 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %defattr(-,root,root,-)
 %license LICENSE
 %doc CONTRIBUTING.md README.md
+%{_mandir}/man8/%{gorepo}.8*
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{gorepo}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{gorepo}
 %{_unitdir}/%{gorepo}.service
@@ -120,6 +128,9 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
+* Wed Nov 20 22:03:49 UTC 2019 bperkins - 1.2.4-3
+- Add man page
+
 * Wed Nov 13 12:25:57 UTC 2019 bperkins - 1.2.4-2
 - Implement systemd
 
