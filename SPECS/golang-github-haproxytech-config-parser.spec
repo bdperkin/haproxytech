@@ -14,7 +14,7 @@ HAProxy configuration parser.}
 %global godocs          README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        HAProxy configuration parser
 
 # Upstream license specification: Apache-2.0
@@ -30,8 +30,6 @@ Source0:        %{gosource}
 %prep
 %goprep
 
-%build
-
 %install
 %gopkginstall
 
@@ -43,9 +41,6 @@ Source0:        %{gosource}
 %gopkgfiles
 
 %changelog
-* Wed Nov 20 21:09:51 UTC 2019 bperkins - 1.1.10-2
-- Fix rpmlint warnings
-
 * Wed Nov 13 12:34:58 UTC 2019 mockbuild - 1.1.10-1
 - Initial package
 

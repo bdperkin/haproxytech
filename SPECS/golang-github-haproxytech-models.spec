@@ -14,7 +14,7 @@ HAProxy Go structs for API.}
 %global godocs          README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        HAProxy Go structs for API
 
 # Upstream license specification: Apache-2.0
@@ -35,8 +35,6 @@ BuildRequires:  golang(github.com/go-openapi/validate)
 %prep
 %goprep
 
-%build
-
 %install
 %gopkginstall
 
@@ -48,9 +46,6 @@ BuildRequires:  golang(github.com/go-openapi/validate)
 %gopkgfiles
 
 %changelog
-* Wed Nov 20 21:09:51 UTC 2019 bperkins - 1.2.4-2
-- Fix rpmlint warnings
-
 * Wed Nov 13 12:25:58 UTC 2019 mockbuild - 1.2.4-1
 - Initial package
 

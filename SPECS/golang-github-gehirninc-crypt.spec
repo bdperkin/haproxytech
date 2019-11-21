@@ -15,7 +15,7 @@ Pure Go crypt(3) Implementation.}
 
 Name:           %{goname}
 Version:        0
-Release:        0.2%{?dist}
+Release:        0.1%{?dist}
 Summary:        Pure Go crypt(3) Implementation
 
 # Upstream license specification: BSD-2-Clause
@@ -31,8 +31,6 @@ Source0:        %{gosource}
 %prep
 %goprep
 
-%build
-
 %install
 %gopkginstall
 
@@ -44,9 +42,6 @@ Source0:        %{gosource}
 %gopkgfiles
 
 %changelog
-* Wed Nov 20 21:09:51 UTC 2019 bperkins - 0-0.2.20191113git6c0105a
-- Fix rpmlint warnings
-
 * Wed Nov 13 12:21:07 UTC 2019 mockbuild - 0-0.1.20191113git6c0105a
 - Initial package
 

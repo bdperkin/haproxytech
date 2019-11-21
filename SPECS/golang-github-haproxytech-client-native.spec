@@ -14,7 +14,7 @@ Go client for HAProxy configuration and runtime API.}
 %global godocs          README.md runtime/README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Go client for HAProxy configuration and runtime API
 
 # Upstream license specification: Apache-2.0
@@ -50,8 +50,6 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 %prep
 %goprep
 
-%build
-
 %install
 %gopkginstall
 
@@ -63,9 +61,6 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 %gopkgfiles
 
 %changelog
-* Wed Nov 20 21:09:51 UTC 2019 bperkins - 1.2.6-2
-- Fix rpmlint warnings
-
 * Wed Nov 13 12:24:19 UTC 2019 mockbuild - 1.2.6-1
 - Initial package
 
