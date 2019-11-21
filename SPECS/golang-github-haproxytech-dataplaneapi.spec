@@ -21,7 +21,7 @@ HAProxy Data Plane API.}
 %global godocs          CONTRIBUTING.md README.md
 
 Name:           %{goname}
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        HAProxy Data Plane API
 
 Group:          System Environment/Daemons
@@ -71,6 +71,8 @@ Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
 
+Suggests: logrotate
+
 %description
 %{common_description}
 
@@ -98,7 +100,7 @@ install -d -m 0755 %{buildroot}%{_unitdir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/logrotate.d
 install -d -m 0755 %{buildroot}%{_sysconfdir}/sysconfig
 install -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{gorepo}.service
-install -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{gorepo}
+install -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{goname}
 install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 
 %if %{with check}
@@ -120,7 +122,7 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %license LICENSE
 %doc CONTRIBUTING.md README.md
 %{_mandir}/man8/%{gorepo}.8*
-%config(noreplace) %{_sysconfdir}/logrotate.d/%{gorepo}
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{goname}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{gorepo}
 %{_unitdir}/%{gorepo}.service
 %{_sbindir}/*
@@ -128,6 +130,9 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
+* Thu Nov 21 13:50:08 UTC 2019 bperkins - 1.2.4-4
+- Suggest logrotate and fix logrotate configuration
+
 * Wed Nov 20 22:03:49 UTC 2019 bperkins - 1.2.4-3
 - Add man page
 
