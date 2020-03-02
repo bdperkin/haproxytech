@@ -130,14 +130,14 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
-* Thu Nov 21 13:50:08 UTC 2019 bperkins - 1.2.4-4
+* Thu Nov 21 13:50:08 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-4
 - Suggest logrotate and fix logrotate configuration
 
-* Wed Nov 20 22:03:49 UTC 2019 bperkins - 1.2.4-3
+* Wed Nov 20 22:03:49 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-3
 - Add man page
 
-* Wed Nov 13 12:25:57 UTC 2019 bperkins - 1.2.4-2
+* Wed Nov 13 12:25:57 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-2
 - Implement systemd
 
-* Wed Nov 13 12:25:57 UTC 2019 mockbuild - 1.2.4-1
+* Wed Nov 13 12:25:57 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-1
 - Initial package

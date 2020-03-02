@@ -46,6 +46,6 @@ BuildRequires:  golang(github.com/go-openapi/validate)
 %gopkgfiles
 
 %changelog
-* Wed Nov 13 12:25:58 UTC 2019 mockbuild - 1.2.4-1
+* Wed Nov 13 12:25:58 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-1
 - Initial package
 

@@ -61,6 +61,6 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 %gopkgfiles
 
 %changelog
-* Wed Nov 13 12:24:19 UTC 2019 mockbuild - 1.2.6-1
+* Wed Nov 13 12:24:19 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.6-1
 - Initial package
 

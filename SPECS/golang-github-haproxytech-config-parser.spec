@@ -41,6 +41,6 @@ Source0:        %{gosource}
 %gopkgfiles
 
 %changelog
-* Wed Nov 13 12:34:58 UTC 2019 mockbuild - 1.1.10-1
+* Wed Nov 13 12:34:58 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.1.10-1
 - Initial package
 

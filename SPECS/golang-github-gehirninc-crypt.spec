@@ -42,6 +42,6 @@ Source0:        %{gosource}
 %gopkgfiles
 
 %changelog
-* Wed Nov 13 12:21:07 UTC 2019 mockbuild - 0-0.1.20191113git6c0105a
+* Wed Nov 13 12:21:07 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 0-0.1.20191113git6c0105a
 - Initial package
 
