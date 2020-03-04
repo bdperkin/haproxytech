@@ -129,8 +129,8 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 
 %changelog
 * Wed Mar 04 14:54:06 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-6
-- Use %global instead of %define
-- Remove %defattr that is not needed
+- Use global instead of define macro
+- Remove defattr macro that is not needed
 
 * Mon Mar 02 15:30:56 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-5
 - Clean changelog
