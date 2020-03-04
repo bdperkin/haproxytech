@@ -1,9 +1,9 @@
 %bcond_without check
 
-%define gorepo          dataplaneapi
-%define haproxy_user    haproxy
-%define haproxy_group   %{haproxy_user}
-%define haproxy_homedir %{_localstatedir}/lib/haproxy
+%global gorepo          dataplaneapi
+%global haproxy_user    haproxy
+%global haproxy_group   %{haproxy_user}
+%global haproxy_homedir %{_localstatedir}/lib/haproxy
 
 %global _hardened_build 1
 
@@ -20,7 +20,7 @@ HAProxy Data Plane API.}
 %global godocs          README.md CONTRIBUTING.md
 
 Name:           %{goname}
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        HAProxy Data Plane API
 
 Group:          System Environment/Daemons
@@ -117,7 +117,6 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %systemd_postun_with_restart %{gorepo}.service
 
 %files
-%defattr(-,root,root,-)
 %license LICENSE
 %doc README.md CONTRIBUTING.md
 %{_mandir}/man8/%{gorepo}.8*
@@ -129,6 +128,10 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
+* Wed Mar 04 14:54:06 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-6
+- Use %global instead of %define
+- Remove %defattr that is not needed
+
 * Mon Mar 02 15:30:56 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-5
 - Clean changelog
 
