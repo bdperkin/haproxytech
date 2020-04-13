@@ -13,7 +13,7 @@ Go client for HAProxy configuration and runtime API.}
 %global godocs          README.md runtime/README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Go client for HAProxy configuration and runtime API
 
 # Upstream license specification: Apache-2.0
@@ -48,6 +48,7 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 
 %prep
 %goprep
+rm runtime/README.md
 
 %install
 %gopkginstall
@@ -60,6 +61,9 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 %gopkgfiles
 
 %changelog
+* Mon Apr 13 17:29:12 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.6-3
+- Remove runtime/README.md
+
 * Mon Mar 02 15:30:56 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.6-2
 - Clean changelog
 
