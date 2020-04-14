@@ -66,10 +66,11 @@ BuildRequires:  help2man
 BuildRequires:  gzip
 
 Requires:         haproxy >= 2.0
-Requires:         logrotate
 Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
+
+Suggests: logrotate
 
 %description
 %{common_description}
@@ -129,7 +130,6 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %changelog
 * Tue Apr 14 14:27:35 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-7
 - Change haproxy requires to >= 2.0 as 1.9 was never packaged
-- Require instead of Suggest logrotate due to logging by default
 - Add specific versions for haproxytech BuildRequires
 
 * Wed Mar 04 14:54:06 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-6
