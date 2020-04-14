@@ -13,7 +13,7 @@ Go client for HAProxy configuration and runtime API.}
 %global godocs          README.md runtime/README.md
 
 Name:           %{goname}
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Go client for HAProxy configuration and runtime API
 
 # Upstream license specification: Apache-2.0
@@ -24,15 +24,15 @@ Source0:        %{gosource}
 BuildRequires:  golang(github.com/go-openapi/errors)
 BuildRequires:  golang(github.com/go-openapi/strfmt)
 BuildRequires:  golang(github.com/google/uuid)
-BuildRequires:  golang(github.com/haproxytech/config-parser)
-BuildRequires:  golang(github.com/haproxytech/config-parser/common)
-BuildRequires:  golang(github.com/haproxytech/config-parser/errors)
-BuildRequires:  golang(github.com/haproxytech/config-parser/params)
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/filters)
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/http/actions)
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/tcp/actions)
-BuildRequires:  golang(github.com/haproxytech/config-parser/types)
-BuildRequires:  golang(github.com/haproxytech/models)
+BuildRequires:  golang(github.com/haproxytech/config-parser) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/common) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/errors) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/params) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/filters) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/http/actions) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/tcp/actions) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/models) >= 1.2.4
 BuildRequires:  golang(github.com/mitchellh/mapstructure)
 BuildRequires:  golang(github.com/pkg/errors)
 
@@ -61,6 +61,9 @@ rm runtime/README.md
 %gopkgfiles
 
 %changelog
+* Tue Apr 14 14:27:35 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.6-4
+- Add specific versions for haproxytech BuildRequires
+
 * Mon Apr 13 17:29:12 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.6-3
 - Remove runtime/README.md
 
