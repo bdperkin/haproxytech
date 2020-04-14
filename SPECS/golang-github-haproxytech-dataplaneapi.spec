@@ -20,7 +20,7 @@ HAProxy Data Plane API.}
 %global godocs          README.md CONTRIBUTING.md
 
 Name:           %{goname}
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        HAProxy Data Plane API
 
 Group:          System Environment/Daemons
@@ -48,12 +48,12 @@ BuildRequires:  golang(github.com/go-openapi/spec)
 BuildRequires:  golang(github.com/go-openapi/strfmt)
 BuildRequires:  golang(github.com/go-openapi/swag)
 BuildRequires:  golang(github.com/go-openapi/validate)
-BuildRequires:  golang(github.com/haproxytech/client-native)
-BuildRequires:  golang(github.com/haproxytech/client-native/configuration)
-BuildRequires:  golang(github.com/haproxytech/client-native/runtime)
-BuildRequires:  golang(github.com/haproxytech/config-parser)
-BuildRequires:  golang(github.com/haproxytech/config-parser/types)
-BuildRequires:  golang(github.com/haproxytech/models)
+BuildRequires:  golang(github.com/haproxytech/client-native) >= 1.2.6
+BuildRequires:  golang(github.com/haproxytech/client-native/configuration) >= 1.2.6
+BuildRequires:  golang(github.com/haproxytech/client-native/runtime) >= 1.2.6
+BuildRequires:  golang(github.com/haproxytech/config-parser) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/models) >= 1.2.4
 BuildRequires:  golang(github.com/jessevdk/go-flags)
 BuildRequires:  golang(github.com/rs/cors)
 BuildRequires:  golang(github.com/shirou/gopsutil/host)
@@ -65,12 +65,11 @@ BuildRequires:  systemd-units
 BuildRequires:  help2man
 BuildRequires:  gzip
 
-Requires:         haproxy >= 1.9
+Requires:         haproxy >= 2.0
+Requires:         logrotate
 Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
-
-Suggests: logrotate
 
 %description
 %{common_description}
@@ -128,6 +127,11 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
+* Tue Apr 14 14:27:35 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-7
+- Change haproxy requires to >= 2.0 as 1.9 was never packaged
+- Require instead of Suggest logrotate due to logging by default
+- Add specific versions for haproxytech BuildRequires
+
 * Wed Mar 04 14:54:06 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-6
 - Use global instead of define macro
 - Remove defattr macro that is not needed
