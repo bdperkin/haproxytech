@@ -93,12 +93,35 @@ Next, call the **/services/haproxy/info** method, which returns process informat
         }
     }
 
-When fetching data with GET requests you do not need any additional URL parameters.  For example, to get the HAProxy configuration file in plain text, use the **/services/haproxy/configuration** method:
+When fetching data with GET requests you do not need any additional URL parameters.  For example, to get the HAProxy configuration file in plain text, use the **/services/haproxy/configuration/raw** method:
 
     enter code here
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
+    {
+        "data": "global
+        daemon
+        maxconn 256
+        stats socket /var/run/haproxy.sock user haproxy group haproxy mode 660 level admin
+    
+    defaults
+        mode http
+        timeout connect 5000ms
+        timeout client 50000ms
+        timeout server 50000ms
+    
+    userlist dataplaneapi
+        user dataplaneapi insecure-password mypassword
+    
+    listen http-in
+        bind *:8000
+        server server1 127.0.0.1:80 maxconn 32
+    
+    "
+    }
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDgxNTg5MzAxLDczMzIxNTk4NCwtMTI3Nj
-E5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1
-MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0xMj
+c2MTkyNjU4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgx
+MDUzOSwxNTkyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX
+0=
 -->
