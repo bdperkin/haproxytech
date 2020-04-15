@@ -39,8 +39,8 @@ Socket specification is stored in the HAProxy configuration file inside the top-
        global
            stats socket /var/run/haproxy.sock user haproxy group haproxy mode 660 level admin
 
-
+Restart HAProxy so the socket can be created.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5MTUyMzYxLC0xODIwODEwNTM5LDE1OT
-I0NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
+eyJoaXN0b3J5IjpbMTEzNDg5Njk0MiwtMTgyMDgxMDUzOSwxNT
+kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
