@@ -26,8 +26,8 @@ Usernames and passwords are stored in the HAProxy configuration file inside a to
        userlist dataplaneapi
            user dataplaneapi password $5$2yEnDhzXwNRisHxR$NvzzvO85Sw1D0.cjeIu8ZXmzjx9ibGjFfFmbQhq.Su/
 
-
+There is no need to restart HAProxy for the **userlist** section to take e
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMTEyMDQ4MiwtMTgyMDgxMDUzOSwxNT
+eyJoaXN0b3J5IjpbMTU3ODQzMDAxMywtMTgyMDgxMDUzOSwxNT
 kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
