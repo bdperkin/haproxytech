@@ -30,8 +30,8 @@ There is no need to restart HAProxy for changes to the **userlist** section.  Th
 
 ## Configure HAProxy socket
 The Data Plane API requires read and write access to the HAProxy socket to function.
-
+Socket specification is stored in the HAProxy configuration file inside the top-level **global** section.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzM3MTY5MzksLTE4MjA4MTA1MzksMT
-U5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbMTgyNzQzMjk3MCwtMTgyMDgxMDUzOSwxNT
+kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
