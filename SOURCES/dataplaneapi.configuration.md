@@ -93,12 +93,12 @@ Next, call the **/services/haproxy/info** method, which returns process informat
         }
     }
 
-When fetching data with GET requests you do not need any additional URL parameters.  For example, to get a list of frontends in your configuration, use the **/services/haproxy/configuration/frontends** method:
+When fetching data with GET requests you do not need any additional URL parameters.  For example, to get the HAProxy configuration file in plain text, use the **/services/haproxy/configuration** method:
 
     enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIwMj
-UzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyNDQ1
-OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbNDgxNTg5MzAxLDczMzIxNTk4NCwtMTI3Nj
+E5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1
+MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
