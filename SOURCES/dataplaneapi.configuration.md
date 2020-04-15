@@ -28,9 +28,10 @@ Usernames and passwords are stored in the HAProxy configuration file inside a to
 
 There is no need to restart HAProxy for changes to the **userlist** section.  The Data Plane API runs as its own process which allows it to write and reload the HAProxy configuration as needed.
 
-## Configure dataplaneapi use
+## Configure HAProxy socket
+The Data Plane API requires read and write access to the HAProxy socket to function.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NTE0ODIyNiwtMTgyMDgxMDUzOSwxNT
-kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbLTEwMzM3MTY5MzksLTE4MjA4MTA1MzksMT
+U5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
