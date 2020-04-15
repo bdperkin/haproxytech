@@ -58,10 +58,10 @@ Restart HAProxy so the socket can be created.
        active
 
 ## Test that the Data Plane API is running properly
-Basic testing can be performed by using the **curl** command.
+Basic testing can be performed by using the **curl** command found in the **curl** package.  It is also suggested to install the 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNTM2NDE3MywxODUzMDU3NjI3LC0xOD
-IwODEwNTM5LDE1OTI0NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4
-NTZdfQ==
+eyJoaXN0b3J5IjpbLTE4Mzg2NTMxNzcsMjAyNTM2NDE3MywxOD
+UzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0NDU5MDYsMjU5MTgy
+MTYwLDE4MDM4MDc4NTZdfQ==
 -->
