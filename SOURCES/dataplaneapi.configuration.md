@@ -178,7 +178,7 @@ Third, add servers to the backend:
         "port": 8080,
         "weight": 100
     }
-    $ curl -d '{"name": "server3", "address": "127.0.0.3", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    $ curl -d '{"name": "server3", "address": "127.0.0.3", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "address": "127.0.0.3",
         "check": "enabled",
@@ -188,12 +188,15 @@ Third, add servers to the backend:
         "weight": 100
     }
 
+Fourth, add the frontend:
+
+    enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0MzE2MjQ3NCw3MDk1NjUxMTcsMTk5Nz
-Q1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4
-MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNz
-MsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1
-MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyNDQ1OTA2LDI1OTE4Mj
-E2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbLTE1MDE1NjE5ODYsNzA5NTY1MTE3LDE5OT
+c0NTkyNDYsLTEzNjA2NzczNTEsLTIwNjA4NTgyNTksLTE4MTIw
+ODEyNTgsLTEwMzM3NzcyMjksMTM3NzQ0MDY2LC0xMjA3MTE2MD
+czLDczMzIxNTk4NCwtMTI3NjE5MjY1OCwyMDI1MzY0MTczLDE4
+NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0NTkwNiwyNTkxOD
+IxNjAsMTgwMzgwNzg1Nl19
 -->
