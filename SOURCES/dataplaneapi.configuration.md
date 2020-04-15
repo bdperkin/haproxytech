@@ -3,9 +3,9 @@ This document covers configuration and basic usage of the HAProxy Data Plane API
 
 ## Configure dataplaneapi user
 The Data Plane API requires basic authentication such that any user invoking methods must provide valid credentials.
-Usernames and passwords are stored in the HAProxy configuration file inside a **userlist** 
+Usernames and passwords are stored in the HAProxy configuration file inside a top-level **userlist** section.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNjM3Mzk1MywxNTkyNDQ1OTA2LDI1OT
+eyJoaXN0b3J5IjpbMTA1NDY4OTIyOCwxNTkyNDQ1OTA2LDI1OT
 E4MjE2MCwxODAzODA3ODU2XX0=
 -->
