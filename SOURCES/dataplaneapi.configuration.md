@@ -218,7 +218,7 @@ Finally, after the transaction is complete, apply the changes:
 
 Check that the transaction has finished:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions" | python3 -m json.tool | sed -e 's/^/    /g'
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions" | python3 -m json.tool
     []
 
 View the new configuration file:
@@ -301,11 +301,11 @@ The data field should match the configuration found in **/etc/haproxy/haproxy.cf
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MjYyMzkzMSwtNzI2NjYwODgwLC0xNT
-AxNTYxOTg2LDcwOTU2NTExNywxOTk3NDU5MjQ2LC0xMzYwNjc3
-MzUxLC0yMDYwODU4MjU5LC0xODEyMDgxMjU4LC0xMDMzNzc3Mj
-I5LDEzNzc0NDA2NiwtMTIwNzExNjA3Myw3MzMyMTU5ODQsLTEy
-NzYxOTI2NTgsMjAyNTM2NDE3MywxODUzMDU3NjI3LC0xODIwOD
-EwNTM5LDE1OTI0NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZd
-fQ==
+eyJoaXN0b3J5IjpbLTE1MTYwNjMyNzQsLTg3MjYyMzkzMSwtNz
+I2NjYwODgwLC0xNTAxNTYxOTg2LDcwOTU2NTExNywxOTk3NDU5
+MjQ2LC0xMzYwNjc3MzUxLC0yMDYwODU4MjU5LC0xODEyMDgxMj
+U4LC0xMDMzNzc3MjI5LDEzNzc0NDA2NiwtMTIwNzExNjA3Myw3
+MzMyMTU5ODQsLTEyNzYxOTI2NTgsMjAyNTM2NDE3MywxODUzMD
+U3NjI3LC0xODIwODEwNTM5LDE1OTI0NDU5MDYsMjU5MTgyMTYw
+LDE4MDM4MDc4NTZdfQ==
 -->
