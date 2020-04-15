@@ -15,7 +15,7 @@ Usernames and passwords are stored in the HAProxy configuration file inside a to
            user dataplaneapi insecure-password mypassword
 
  - Change the ***user*** and ***insecure-password*** values to those of your choice.  You may also add additional ***user*** lines.
- - It is suggested to use an encrypted password instead of an insecure plain text password.  Supported algorithms are: MD5, SHA-256, and SHA-512.  To generate an encrypted password, install the **mkpasswd** package and then run the following command:
+ - It is suggested to use an encrypted password instead of an insecure plain text password.  Supported algorithms are: MD5, SHA-256, and SHA-512.  To generate a SHA-256 encrypted password, install the **mkpasswd** package and then run the following command:
 
 
        $ mkpasswd -m sha-256 mypassword
@@ -61,7 +61,7 @@ Restart HAProxy so the socket can be created.
 Basic testing can be performed by using the **curl** command found in the **curl** package.  It is also suggested to install the **python3-libs** package so that the **json.tool** can be used to validate and pretty-print the JSON responses.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3ODQ0NTIwLC0xMjc2MTkyNjU4LDIwMj
-UzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyNDQ1
-OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbLTc2MzQxODE2MiwtMTI3NjE5MjY1OCwyMD
+I1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0
+NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
