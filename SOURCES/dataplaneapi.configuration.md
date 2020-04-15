@@ -82,10 +82,20 @@ The "root" of the API is at **/v1**.  The most basic test that can be performed 
 
 Next, call the **/services/haproxy/info** method, which returns process information:
 
-    enter code here
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/info" | python3 -m json.tool
+    {
+        "haproxy": {
+            "pid": 1622051,
+            "processes": 1,
+            "release_date": "2019-12-21",
+            "uptime": 16985,
+            "version": "2.0.12"
+        }
+    }
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODYwMzE4ODgsLTEyNzYxOTI2NTgsMj
+eyJoaXN0b3J5IjpbLTExNTU5Mjc0MzYsLTEyNzYxOTI2NTgsMj
 AyNTM2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0
 NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
 -->
