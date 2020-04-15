@@ -8,9 +8,10 @@ The system configuration file can be found at **/etc/sysconfig/dataplaneapi**.  
 The Data Plane API requires basic authentication such that any user invoking methods must provide valid credentials.
 Usernames and passwords are stored in the HAProxy configuration file inside a top-level **userlist** section.
 
- 1. Add the following to the HAProxy configuration file **/etc/haproxy/haproxy.cfg**
-
+ - Add the following to the HAProxy configuration file
+   **/etc/haproxy/haproxy.cfg**:
+   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI5OTg5NjA2LDE1OTI0NDU5MDYsMjU5MT
-gyMTYwLDE4MDM4MDc4NTZdfQ==
+eyJoaXN0b3J5IjpbMTEzMTc3MTg3OCwxNTkyNDQ1OTA2LDI1OT
+E4MjE2MCwxODAzODA3ODU2XX0=
 -->
