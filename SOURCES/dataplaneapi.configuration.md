@@ -93,9 +93,9 @@ Next, call the **/services/haproxy/info** method, which returns process informat
         }
     }
 
-
+When fetching data with GET requests you do not need any URL parameters.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTU5Mjc0MzYsLTEyNzYxOTI2NTgsMj
-AyNTM2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0
-NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
+eyJoaXN0b3J5IjpbNzIwMzgwNDc0LC0xMjc2MTkyNjU4LDIwMj
+UzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyNDQ1
+OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
