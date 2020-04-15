@@ -95,7 +95,6 @@ Next, call the **/services/haproxy/info** method, which returns process informat
 
 When fetching data with GET requests you do not need any additional URL parameters.  For example, to get the HAProxy configuration file in plain text, use the **/services/haproxy/configuration/raw** method:
 
-    enter code here
     $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
     {
         "data": "global
@@ -120,8 +119,8 @@ When fetching data with GET requests you do not need any additional URL paramete
     }
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0xMj
-c2MTkyNjU4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgx
-MDUzOSwxNTkyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX
-0=
+eyJoaXN0b3J5IjpbMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMz
+IxNTk4NCwtMTI3NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2
+MjcsLTE4MjA4MTA1MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMT
+gwMzgwNzg1Nl19
 -->
