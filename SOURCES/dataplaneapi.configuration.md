@@ -122,7 +122,7 @@ When fetching data with GET requests you do not need any additional URL paramete
 Here is how a backend can be created with servers that a frontend binds to.
 First, initialize a transaction:
 
-    $ curl -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions?version=1" | python3 -m json.tool | sed -e 's/^/    /g'
+    $ curl -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions?version=1" | python3 -m json.tool
     {
         "_version": 1,
         "id": "78dd7054-c83c-4408-bf68-ddc1c0289054",
@@ -141,15 +141,14 @@ Make note of the transaction ID above (78dd7054-c83c-4408-bf68-ddc1c0289054 in t
         }
     ]
 
-
 Second, add a backend:
 
     enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODMyMzI0MzEsLTEzNjA2NzczNTEsLTIwNj
-A4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3NzQ0
-MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5MjY1OC
-wyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5
-MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbMTk5NzQ1OTI0NiwtMTM2MDY3NzM1MSwtMj
+A2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3NzIyOSwxMzc3
+NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0xMjc2MTkyNj
+U4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwx
+NTkyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
