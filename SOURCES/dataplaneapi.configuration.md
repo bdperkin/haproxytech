@@ -63,26 +63,26 @@ The "root" of the API is at **/v1**.  The most basic test that can be performed 
 
     $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/" | python3 -m json.tool
     [
-    {
-        "description": "Return Data Plane API OpenAPI specification",
-        "title": "Data Plane API Specification",
-        "url": "/specification"
-    },
-    {
-        "description": "Returns a list of API managed services endpoints.",
-        "title": "Return list of service endpoints",
-        "url": "/services"
-    },
-    {
-        "description": "Return API, hardware and OS information",
-        "title": "Return API, hardware and OS information",
-        "url": "/info"
-    }
+        {
+            "description": "Return Data Plane API OpenAPI specification",
+            "title": "Data Plane API Specification",
+            "url": "/specification"
+        },
+        {
+            "description": "Returns a list of API managed services endpoints.",
+            "title": "Return list of service endpoints",
+            "url": "/services"
+        },
+        {
+            "description": "Return API, hardware and OS information",
+            "title": "Return API, hardware and OS information",
+            "url": "/info"
+        }
     ]
- here
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczMzE3MDM5NSwtMTI3NjE5MjY1OCwyMD
-I1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0
-NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbODEwOTM3ODcsLTEyNzYxOTI2NTgsMjAyNT
+M2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0NDU5
+MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
 -->
