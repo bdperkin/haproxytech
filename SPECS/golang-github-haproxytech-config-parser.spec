@@ -2,7 +2,7 @@
 
 # https://github.com/haproxytech/config-parser
 %global goipath         github.com/haproxytech/config-parser
-Version:                1.2.0
+Version:                2.0.0
 
 %gometa
 
@@ -40,10 +40,13 @@ Source0:        %{gosource}
 %gopkgfiles
 
 %changelog
-* Mon Mar 02 15:30:56 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.0-1
+* Wed Apr 15 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.0-1
+- Upgrade to version 2.0.0
+
+* Mon Mar 02 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.0-1
 - Upgrade to version 1.2.0
 - Clean changelog
 
-* Wed Nov 13 12:34:58 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.1.10-1
+* Wed Nov 13 2019 Brandon Perkins <bperkins@redhat.com> - 1.1.10-1
 - Initial package
 
