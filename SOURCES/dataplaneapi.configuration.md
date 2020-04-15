@@ -118,9 +118,11 @@ When fetching data with GET requests you do not need any additional URL paramete
     "
     }
 
+## Example use case
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMz
-IxNTk4NCwtMTI3NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2
-MjcsLTE4MjA4MTA1MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMT
-gwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbLTEwMzM3NzcyMjksMTM3NzQ0MDY2LC0xMj
+A3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5MjY1OCwyMDI1MzY0
+MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0NTkwNi
+wyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
