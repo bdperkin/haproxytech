@@ -42,13 +42,12 @@ Socket specification is stored in the HAProxy configuration file inside the top-
 Restart HAProxy so the socket can be created.
 
 ## Enable and start the Data Plane API service
- - To enable the **dataplaneapi** service unit, so that it starts on system boot, run the following command:
+ - To enable the **dataplaneapi** service unit, so that it starts on system boot, run the following command (also make sure the haproxy service is enabled):
 
 
-       $ mkpasswd -m sha-256 mypassword
-       $5$2yEnDhzXwNRisHxR$NvzzvO85Sw1D0.cjeIu8ZXmzjx9ibGjFfFmbQhq.Su/
+       $ 
        
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzgxNDQ2NDYsLTE4MjA4MTA1MzksMT
-U5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbLTExNzM4ODE0NSwtMTgyMDgxMDUzOSwxNT
+kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
