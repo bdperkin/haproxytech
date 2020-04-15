@@ -130,13 +130,16 @@ First, initialize a transaction:
     }
 
 
-Make note of the transaction ID above (78dd7054-c83c-4408-bf68-ddc1c0289054 in this case).  Subsequent calls during this use case 
+Make note of the transaction ID above (78dd7054-c83c-4408-bf68-ddc1c0289054 in this case).  Subsequent calls during this transaction will include the **transaction_id** parameter in the URL. To view all transactions, use the following command:
+
+    enter code here
+
 Second, add a backend:
 
     enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNDA5Nzg5MjEsLTEzNjA2NzczNTEsLT
+eyJoaXN0b3J5IjpbLTEzNTgxOTU3MDYsLTEzNjA2NzczNTEsLT
 IwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3
 NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5Mj
 Y1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1Mzks
