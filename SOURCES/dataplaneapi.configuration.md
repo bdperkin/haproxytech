@@ -42,7 +42,7 @@ Socket specification is stored in the HAProxy configuration file inside the top-
 Restart HAProxy so the socket can be created.
 
 ## Enable and start the Data Plane API service
- - To enable the **dataplaneapi** service unit, so that it starts on system boot, run the following command (also make sure the haproxy service is enabled):
+ - To enable the **dataplaneapi** service unit, so that it starts on system boot, run the following command (also make sure the **haproxy** service is enabled):
 
 
        $ sudo systemctl enable dataplaneapi.service
@@ -50,7 +50,7 @@ Restart HAProxy so the socket can be created.
        $ sudo systemctl is-enabled haproxy.service
        enabled
 
- - To start the **dataplaneapi** service unit run the following command (also make sure the haproxy service is active):
+ - To start the **dataplaneapi** service unit run the following command (also make sure the **haproxy** service is active):
 
 
        $ sudo systemctl start dataplaneapi.service
@@ -60,6 +60,6 @@ Restart HAProxy so the socket can be created.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4MjExNjE4NywtMTgyMDgxMDUzOSwxNT
+eyJoaXN0b3J5IjpbMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNT
 kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
