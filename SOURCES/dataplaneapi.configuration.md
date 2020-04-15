@@ -41,7 +41,9 @@ Socket specification is stored in the HAProxy configuration file inside the top-
 
 Restart HAProxy so the socket can be created.
 
+## Enable and start the Data Plane API service
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0Nzg1Mzc4OCwtMTgyMDgxMDUzOSwxNT
+eyJoaXN0b3J5IjpbMTkwNDYwMjg5NiwtMTgyMDgxMDUzOSwxNT
 kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
