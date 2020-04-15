@@ -16,9 +16,10 @@ Usernames and passwords are stored in the HAProxy configuration file inside a to
 
  - Change the ***user*** and ***insecure-password*** values to those of your choice.  You may also add additional ***user*** lines.
  - It is suggested to use an encrypted password instead of an insecure plain text password.  To generate an encrypted password, install the **mkpasswd** package and then run the following command:
- - 
+
+    enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NjA1OTYyMywtMTgyMDgxMDUzOSwxNT
+eyJoaXN0b3J5IjpbMTMxMDMzMjk3NywtMTgyMDgxMDUzOSwxNT
 kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
