@@ -1,5 +1,5 @@
 # HAProxy Data Plane API Configuration
-This document covers configuration and basic usage of the HAProxy Data Plane API on Red Hat Enterprise Linux and Fedora distributions and is intended as a supplement to the [README.md](README.md) file.  The prerequisite for using this document is that HAProxy has already been configured and has been started.
+This document covers configuration and basic usage of the HAProxy Data Plane API on Red Hat Enterprise Linux and Fedora distributions and is intended as a supplement to the [README.md](README.md) file.  It is adapted fThe prerequisite for using this document is that HAProxy has already been configured and has been started.
 
 ## General Data Plane API configuration
 The system configuration file can be found at **/etc/sysconfig/dataplaneapi**.  Please review this file, especially for the **PORT** and **USERLIST** values to make sure they will work in your environment.
@@ -118,7 +118,7 @@ When fetching data with GET requests you do not need any additional URL paramete
     "
     }
 
-## Example use case
+## Use case example
 Here is how a backend can be created with servers that a frontend binds to.
 First, initialize a transaction:
 
@@ -298,14 +298,15 @@ The data field should match the configuration found in **/etc/haproxy/haproxy.cf
       bind *:8000
       server server1 127.0.0.1:80 maxconn 32
 
+## ACL example
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTYwNjMyNzQsLTg3MjYyMzkzMSwtNz
-I2NjYwODgwLC0xNTAxNTYxOTg2LDcwOTU2NTExNywxOTk3NDU5
-MjQ2LC0xMzYwNjc3MzUxLC0yMDYwODU4MjU5LC0xODEyMDgxMj
-U4LC0xMDMzNzc3MjI5LDEzNzc0NDA2NiwtMTIwNzExNjA3Myw3
-MzMyMTU5ODQsLTEyNzYxOTI2NTgsMjAyNTM2NDE3MywxODUzMD
-U3NjI3LC0xODIwODEwNTM5LDE1OTI0NDU5MDYsMjU5MTgyMTYw
-LDE4MDM4MDc4NTZdfQ==
+eyJoaXN0b3J5IjpbLTgwOTg3MTEzMCwtMTUxNjA2MzI3NCwtOD
+cyNjIzOTMxLC03MjY2NjA4ODAsLTE1MDE1NjE5ODYsNzA5NTY1
+MTE3LDE5OTc0NTkyNDYsLTEzNjA2NzczNTEsLTIwNjA4NTgyNT
+ksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3NzQ0MDY2LC0x
+MjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5MjY1OCwyMDI1Mz
+Y0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0NTkw
+NiwyNTkxODIxNjBdfQ==
 -->
