@@ -200,13 +200,20 @@ Fourth, add the frontend:
 
 Fifth, add a bind line to the frontend:
 
-    enter code here
+    enter code here$ curl -d '{"name": "http", "address": "*", "port": 9433}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/binds?frontend=test_frontend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    {
+        "address": "*",
+        "name": "http",
+        "port": 9433
+    }
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNjY2MDg4MCwtMTUwMTU2MTk4Niw3MD
-k1NjUxMTcsMTk5NzQ1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1
-ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNj
-YsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIw
-MjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyND
-Q1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbLTE5MjAyNDQ1MzIsLTcyNjY2MDg4MCwtMT
+UwMTU2MTk4Niw3MDk1NjUxMTcsMTk5NzQ1OTI0NiwtMTM2MDY3
+NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3Nz
+IyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0x
+Mjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMD
+gxMDUzOSwxNTkyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2
+XX0=
 -->
