@@ -59,9 +59,9 @@ Restart HAProxy so the socket can be created.
 
 ## Test that the Data Plane API is running properly
 Basic testing can be performed by using the **curl** command found in the **curl** package.  It is also suggested to install the **python3-libs** package so that the **json.tool** can be used to validate and pretty-print the JSON responses.
-
+The "root" of the API is at **/v1**.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MzQxODE2MiwtMTI3NjE5MjY1OCwyMD
+eyJoaXN0b3J5IjpbLTk0MDk3NjY4MCwtMTI3NjE5MjY1OCwyMD
 I1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0
 NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
