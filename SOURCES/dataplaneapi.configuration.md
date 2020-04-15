@@ -61,8 +61,8 @@ Restart HAProxy so the socket can be created.
 Basic testing can be performed by using the **curl** command found in the **curl** package.  It is also suggested to install the **python3-libs** package so that the **json.tool** can be used to validate and pretty-print the JSON responses.
 The "root" of the API is at **/v1**.  The most basic test that can be performed is to get that path:
 
-    enter $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/" | python3 -m json.tool
-[
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/" | python3 -m json.tool
+    [
     {
         "description": "Return Data Plane API OpenAPI specification",
         "title": "Data Plane API Specification",
@@ -78,11 +78,11 @@ The "root" of the API is at **/v1**.  The most basic test that can be performed 
         "title": "Return API, hardware and OS information",
         "url": "/info"
     }
-]
+    ]
  here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMTI4Nzg1MywtMTI3NjE5MjY1OCwyMD
+eyJoaXN0b3J5IjpbLTczMzE3MDM5NSwtMTI3NjE5MjY1OCwyMD
 I1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0
 NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
