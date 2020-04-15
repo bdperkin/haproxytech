@@ -9,12 +9,12 @@ The Data Plane API requires basic authentication such that any user invoking met
 Usernames and passwords are stored in the HAProxy configuration file inside a top-level **userlist** section.
 
  - Add the following to the HAProxy configuration file
-   **/etc/haproxy/haproxy.cfg**:
+   **/etc/haproxy/haproxy.cfg** where the userlist value matches the :
 
        userlist dataplaneapi
            user dataplaneapi insecure-password mypassword
 In this example, we added a single user named
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwOTQ3ODM2MSwxNTkyNDQ1OTA2LDI1OT
-E4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbNjQzNTQ4NjI3LDE1OTI0NDU5MDYsMjU5MT
+gyMTYwLDE4MDM4MDc4NTZdfQ==
 -->
