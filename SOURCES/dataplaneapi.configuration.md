@@ -160,13 +160,40 @@ Second, add a backend:
 
 Third, add servers to the backend:
 
-    enter code here
+    enter code here[bperkins@bperkins ~]$ curl -d '{"name": "server1", "address": "127.0.0.1", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    {
+        "address": "127.0.0.1",
+        "check": "enabled",
+        "maxconn": 30,
+        "name": "server1",
+        "port": 8080,
+        "weight": 100
+    }
+[bperkins@bperkins ~]$ curl -d '{"name": "server2", "address": "127.0.0.2", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    {
+        "address": "127.0.0.2",
+        "check": "enabled",
+        "maxconn": 30,
+        "name": "server2",
+        "port": 8080,
+        "weight": 100
+    }
+[bperkins@bperkins ~]$ curl -d '{"name": "server3", "address": "127.0.0.3", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    {
+        "address": "127.0.0.3",
+        "check": "enabled",
+        "maxconn": 30,
+        "name": "server3",
+        "port": 8080,
+        "weight": 100
+    }
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNj
-A2NzczNTEsLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3
-NzcyMjksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NC
-wtMTI3NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4
-MjA4MTA1MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNz
-g1Nl19
+eyJoaXN0b3J5IjpbLTY3NjkyNzM1MSw3MDk1NjUxMTcsMTk5Nz
+Q1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4
+MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNz
+MsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1
+MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyNDQ1OTA2LDI1OTE4Mj
+E2MCwxODAzODA3ODU2XX0=
 -->
