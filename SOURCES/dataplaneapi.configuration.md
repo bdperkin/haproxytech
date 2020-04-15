@@ -190,7 +190,7 @@ Third, add servers to the backend:
 
 Fourth, add the frontend:
 
-    $ curl -d '{"name": "test_frontend", "mode": "http", "default_backend": "test_backend", "maxconn": 2000}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/frontends?transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    $ curl -d '{"name": "test_frontend", "mode": "http", "default_backend": "test_backend", "maxconn": 2000}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/frontends?transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "default_backend": "test_backend",
         "maxconn": 2000,
@@ -203,10 +203,10 @@ Fifth, add a bind line to the frontend:
     enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgwNDEwMjA3LC0xNTAxNTYxOTg2LDcwOT
-U2NTExNywxOTk3NDU5MjQ2LC0xMzYwNjc3MzUxLC0yMDYwODU4
-MjU5LC0xODEyMDgxMjU4LC0xMDMzNzc3MjI5LDEzNzc0NDA2Ni
-wtMTIwNzExNjA3Myw3MzMyMTU5ODQsLTEyNzYxOTI2NTgsMjAy
-NTM2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0ND
-U5MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
+eyJoaXN0b3J5IjpbLTcyNjY2MDg4MCwtMTUwMTU2MTk4Niw3MD
+k1NjUxMTcsMTk5NzQ1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1
+ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNj
+YsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIw
+MjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyND
+Q1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
