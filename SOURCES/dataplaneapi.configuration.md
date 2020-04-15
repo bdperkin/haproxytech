@@ -263,10 +263,45 @@ View the new configuration file:
 
 The data field should match the configuration found in **/etc/haproxy/haproxy.cfg**:
 
-    enter code here
+    $ cat /etc/haproxy/haproxy.cfg
+    # _version=2
+    
+    global 
+      daemon
+      maxconn 256
+      stats socket /var/run/haproxy.sock user haproxy group haproxy mode 660 level admin
+    
+    defaults 
+      mode http
+      timeout connect 5000ms
+      timeout client 50000ms
+      timeout server 50000ms
+    
+    userlist dataplaneapi 
+      user dataplaneapi insecure-password mypassword
+    
+    frontend test_frontend 
+      mode http
+      maxconn 2000
+      bind *:9433 name http
+      default_backend test_backend
+    
+    backend test_backend 
+      mode http
+      balance roundrobin
+      option httpchk HEAD /check HTTP/1.1
+      server server1 127.0.0.1:8080 check maxconn 30 weight 100
+      server server2 127.0.0.2:8080 check maxconn 30 weight 100
+      server server3 127.0.0.3:8080 check maxconn 30 weight 100
+    
+    listen http-in 
+      bind *:8000
+      server server1 127.0.0.1:80 maxconn 32
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMzU4NjE0MiwtNzI2NjYwODgwLC0xNT
+eyJoaXN0b3J5IjpbLTg3MjYyMzkzMSwtNzI2NjYwODgwLC0xNT
 AxNTYxOTg2LDcwOTU2NTExNywxOTk3NDU5MjQ2LC0xMzYwNjc3
 MzUxLC0yMDYwODU4MjU5LC0xODEyMDgxMjU4LC0xMDMzNzc3Mj
 I5LDEzNzc0NDA2NiwtMTIwNzExNjA3Myw3MzMyMTU5ODQsLTEy
