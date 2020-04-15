@@ -80,9 +80,12 @@ The "root" of the API is at **/v1**.  The most basic test that can be performed 
         }
     ]
 
+Next, call the **/services/haproxy/info** method, which returns process information:
+
+    enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODEwOTM3ODcsLTEyNzYxOTI2NTgsMjAyNT
-M2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0NDU5
-MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
+eyJoaXN0b3J5IjpbLTE1ODYwMzE4ODgsLTEyNzYxOTI2NTgsMj
+AyNTM2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0
+NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
 -->
