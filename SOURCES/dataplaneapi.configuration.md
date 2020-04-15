@@ -42,8 +42,13 @@ Socket specification is stored in the HAProxy configuration file inside the top-
 Restart HAProxy so the socket can be created.
 
 ## Enable and start the Data Plane API service
+ - It is suggested to use an encrypted password instead of an insecure plain text password.  To generate an encrypted password, install the **mkpasswd** package and then run the following command:
 
+
+       $ mkpasswd -m sha-256 mypassword
+       $5$2yEnDhzXwNRisHxR$NvzzvO85Sw1D0.cjeIu8ZXmzjx9ibGjFfFmbQhq.Su/
+       
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNDYwMjg5NiwtMTgyMDgxMDUzOSwxNT
+eyJoaXN0b3J5IjpbLTExMTA5MDI5NywtMTgyMDgxMDUzOSwxNT
 kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
