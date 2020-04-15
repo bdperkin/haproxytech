@@ -119,11 +119,15 @@ When fetching data with GET requests you do not need any additional URL paramete
     }
 
 ## Example use case
-Here is how a backend can be created with servers that a frontend binds to:
+Here is how a backend can be created with servers that a frontend binds to.
+Add a backend:
+
+    enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMT
-M3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5
-MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1Mz
-ksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLT
+EwMzM3NzcyMjksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIx
+NTk4NCwtMTI3NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2Mj
+csLTE4MjA4MTA1MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMTgw
+MzgwNzg1Nl19
 -->
