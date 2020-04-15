@@ -216,13 +216,21 @@ Finally, after the transaction is complete, apply the changes:
         "status": "success"
     }
 
+Check that the transaction has finished:
+
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions" | python3 -m json.tool | sed -e 's/^/    /g'
+    []
+
+View the new configuration file:
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzAzNjgxNzIsLTcyNjY2MDg4MCwtMT
-UwMTU2MTk4Niw3MDk1NjUxMTcsMTk5NzQ1OTI0NiwtMTM2MDY3
-NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3Nz
-IyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0x
-Mjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMD
-gxMDUzOSwxNTkyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2
-XX0=
+eyJoaXN0b3J5IjpbMTI4Mzc2MjMwLC03MjY2NjA4ODAsLTE1MD
+E1NjE5ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2Nzcz
+NTEsLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMj
+ksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3
+NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MT
+A1MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+
 -->
