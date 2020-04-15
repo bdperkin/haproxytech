@@ -1,5 +1,5 @@
 # HAProxy Data Plane API Configuration
-This document covers configuration and basic usage of the HAProxy Data Plane API on Red Hat Enterprise Linux and Fedora distributions and is intended as a supplement to the [README.md](README.md) file.  It is adapted from the [Using the Data Plane API]([https://www.haproxy.com/documentation/hapee/1-9r1/configuration/dataplaneapi/](https://www.haproxy.com/documentation/hapee/1-9r1/configuration/dataplaneapi/)).  The prerequisite for using this document is that HAProxy has already been configured and has been started.
+This document covers configuration and basic usage of the HAProxy Data Plane API on Red Hat Enterprise Linux and Fedora distributions and is intended as a supplement to the [README.md](README.md) file.  It is adapted from the [Using the Data Plane API](https://www.haproxy.com/documentation/hapee/1-9r1/configuration/dataplaneapi/) document from HAProxy Technologies.  The prerequisite for using this document is that HAProxy has already been configured and has been started.
 
 ## General Data Plane API configuration
 The system configuration file can be found at **/etc/sysconfig/dataplaneapi**.  Please review this file, especially for the **PORT** and **USERLIST** values to make sure they will work in your environment.
@@ -302,11 +302,11 @@ The data field should match the configuration found in **/etc/haproxy/haproxy.cf
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0NjM2MTMyNiwtMTUxNjA2MzI3NCwtOD
-cyNjIzOTMxLC03MjY2NjA4ODAsLTE1MDE1NjE5ODYsNzA5NTY1
-MTE3LDE5OTc0NTkyNDYsLTEzNjA2NzczNTEsLTIwNjA4NTgyNT
-ksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3NzQ0MDY2LC0x
-MjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5MjY1OCwyMDI1Mz
-Y0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1MzksMTU5MjQ0NTkw
-NiwyNTkxODIxNjBdfQ==
+eyJoaXN0b3J5IjpbNDQ3NjQzNTIsLTE1MTYwNjMyNzQsLTg3Mj
+YyMzkzMSwtNzI2NjYwODgwLC0xNTAxNTYxOTg2LDcwOTU2NTEx
+NywxOTk3NDU5MjQ2LC0xMzYwNjc3MzUxLC0yMDYwODU4MjU5LC
+0xODEyMDgxMjU4LC0xMDMzNzc3MjI5LDEzNzc0NDA2NiwtMTIw
+NzExNjA3Myw3MzMyMTU5ODQsLTEyNzYxOTI2NTgsMjAyNTM2ND
+E3MywxODUzMDU3NjI3LC0xODIwODEwNTM5LDE1OTI0NDU5MDYs
+MjU5MTgyMTYwXX0=
 -->
