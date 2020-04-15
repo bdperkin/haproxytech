@@ -303,14 +303,21 @@ The data field should match the configuration found in **/etc/haproxy/haproxy.cf
 A final example is to add an ACL to a frontend.
 First, add an ACL named **is_api**:
 
-    enter code here
+    $ curl -d '{"id": 0, "acl_name": "is_api", "criterion": "path_beg", "value": "/api"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/acls?parent_type=frontend&parent_name=test_frontend&version=2" | python3 -m json.tool
+    {
+        "acl_name": "is_api",
+        "criterion": "path_beg",
+        "id": 0,
+        "value": "/api"
+    }
 
+Second, add a **use_backend** line that references the **is_api** ACL:
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk5MzQ5NTE3LC0xNTE2MDYzMjc0LC04Nz
-I2MjM5MzEsLTcyNjY2MDg4MCwtMTUwMTU2MTk4Niw3MDk1NjUx
-MTcsMTk5NzQ1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OS
-wtMTgxMjA4MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEy
-MDcxMTYwNzMsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIwMjUzNj
-QxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNTkyNDQ1OTA2
-LDI1OTE4MjE2MF19
+eyJoaXN0b3J5IjpbMTYyMTA1NTAwMiw0OTkzNDk1MTcsLTE1MT
+YwNjMyNzQsLTg3MjYyMzkzMSwtNzI2NjYwODgwLC0xNTAxNTYx
+OTg2LDcwOTU2NTExNywxOTk3NDU5MjQ2LC0xMzYwNjc3MzUxLC
+0yMDYwODU4MjU5LC0xODEyMDgxMjU4LC0xMDMzNzc3MjI5LDEz
+Nzc0NDA2NiwtMTIwNzExNjA3Myw3MzMyMTU5ODQsLTEyNzYxOT
+I2NTgsMjAyNTM2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5
+LDE1OTI0NDU5MDZdfQ==
 -->
