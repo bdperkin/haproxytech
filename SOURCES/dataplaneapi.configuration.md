@@ -143,12 +143,27 @@ Make note of the transaction ID above (78dd7054-c83c-4408-bf68-ddc1c0289054 in t
 
 Second, add a backend:
 
-    enter code here
+    $ curl -d '{"name": "test_backend", "mode":"http", "balance": {"algorithm":"roundrobin"}, "httpchk": {"method": "HEAD", "uri": "/check", "version": "HTTP/1.1"}}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/backends?transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    {
+        "balance": {
+            "algorithm": "roundrobin",
+            "arguments": null
+        },
+        "httpchk": {
+            "method": "HEAD",
+            "uri": "/check",
+            "version": "HTTP/1.1"
+        },
+        "mode": "http",
+        "name": "test_backend"
+    }
 
+Third, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5NzQ1OTI0NiwtMTM2MDY3NzM1MSwtMj
-A2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3NzIyOSwxMzc3
-NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0xMjc2MTkyNj
-U4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwx
-NTkyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbLTg4Mjc5OTMzMywxOTk3NDU5MjQ2LC0xMz
+YwNjc3MzUxLC0yMDYwODU4MjU5LC0xODEyMDgxMjU4LC0xMDMz
+Nzc3MjI5LDEzNzc0NDA2NiwtMTIwNzExNjA3Myw3MzMyMTU5OD
+QsLTEyNzYxOTI2NTgsMjAyNTM2NDE3MywxODUzMDU3NjI3LC0x
+ODIwODEwNTM5LDE1OTI0NDU5MDYsMjU5MTgyMTYwLDE4MDM4MD
+c4NTZdfQ==
 -->
