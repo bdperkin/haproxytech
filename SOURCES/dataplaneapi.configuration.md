@@ -17,14 +17,14 @@ Usernames and passwords are stored in the HAProxy configuration file inside a to
  - Change the ***user*** and ***insecure-password*** values to those of your choice.  You may also add additional ***user*** lines.
  - It is suggested to use an encrypted password instead of an insecure plain text password.  To generate an encrypted password, install the **mkpasswd** package and then run the following command:
 
-       userlist dataplaneapi
+
        $ mkpasswd -m sha-256 mypassword
        $5$2yEnDhzXwNRisHxR$NvzzvO85Sw1D0.cjeIu8ZXmzjx9ibGjFfFmbQhq.Su/
-           user dataplaneapi insecure-password mypassword
+       
 
- - List item
+ - If using an encrypted password, copy the output from the last step and pa
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTI3ODAyNjUsLTE4MjA4MTA1MzksMT
+eyJoaXN0b3J5IjpbLTE3NTAwMTI1NzIsLTE4MjA4MTA1MzksMT
 U5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
