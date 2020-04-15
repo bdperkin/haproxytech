@@ -45,9 +45,9 @@ BuildRequires:  golang(github.com/go-openapi/validate)
 %gopkgfiles
 
 %changelog
-* Mon Mar 02 15:30:56 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-2
+* Mon Mar 02 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-2
 - Clean changelog
 
-* Wed Nov 13 12:25:58 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-1
+* Wed Nov 13 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-1
 - Initial package
 
