@@ -33,7 +33,7 @@ The Data Plane API requires read and write access to the HAProxy socket to funct
 Socket specification is stored in the HAProxy configuration file inside the top-level **global** section.
 
  - Add the following to the HAProxy configuration file
-   **/etc/haproxy/haproxy.cfg** where the **userlist** value matches the **USERLIST** value from **/etc/sysconfig/dataplaneapi**:
+   **/etc/haproxy/haproxy.cfg**:
 
        userlist dataplaneapi
            user dataplaneapi insecure-password mypassword
@@ -41,6 +41,6 @@ Socket specification is stored in the HAProxy configuration file inside the top-
  - List item
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgyNjk5NzUsLTE4MjA4MTA1MzksMTU5Mj
-Q0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
+eyJoaXN0b3J5IjpbMTA0NTkxNTA3OSwtMTgyMDgxMDUzOSwxNT
+kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
