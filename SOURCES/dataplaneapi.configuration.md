@@ -198,7 +198,7 @@ Fourth, add the frontend:
         "name": "test_frontend"
     }
 
-Fifth, add a bind line to the frontend:
+Fifth, add a **bind** line to the frontend:
 
     $ curl -d '{"name": "http", "address": "*", "port": 9433}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/binds?frontend=test_frontend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
@@ -312,12 +312,15 @@ First, add an ACL named **is_api**:
     }
 
 Second, add a **use_backend** line that references the **is_api** ACL:
+
+    enter code here
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyMTA1NTAwMiw0OTkzNDk1MTcsLTE1MT
-YwNjMyNzQsLTg3MjYyMzkzMSwtNzI2NjYwODgwLC0xNTAxNTYx
-OTg2LDcwOTU2NTExNywxOTk3NDU5MjQ2LC0xMzYwNjc3MzUxLC
-0yMDYwODU4MjU5LC0xODEyMDgxMjU4LC0xMDMzNzc3MjI5LDEz
-Nzc0NDA2NiwtMTIwNzExNjA3Myw3MzMyMTU5ODQsLTEyNzYxOT
-I2NTgsMjAyNTM2NDE3MywxODUzMDU3NjI3LC0xODIwODEwNTM5
-LDE1OTI0NDU5MDZdfQ==
+eyJoaXN0b3J5IjpbMzA4MTMwMDk3LDQ5OTM0OTUxNywtMTUxNj
+A2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MDE1NjE5
+ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2NzczNTEsLT
+IwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3
+NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5Mj
+Y1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1Mzks
+MTU5MjQ0NTkwNl19
 -->
