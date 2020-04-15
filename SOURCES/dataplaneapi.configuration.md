@@ -209,10 +209,16 @@ Fifth, add a bind line to the frontend:
 
 Finally, after the transaction is complete, apply the changes:
 
-    enter code here
+    $ curl -H "Content-Type: application/json" -X PUT -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions/78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    {
+        "_version": 1,
+        "id": "78dd7054-c83c-4408-bf68-ddc1c0289054",
+        "status": "success"
+    }
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzUwOTc2MTQsLTcyNjY2MDg4MCwtMT
+eyJoaXN0b3J5IjpbLTE0MzAzNjgxNzIsLTcyNjY2MDg4MCwtMT
 UwMTU2MTk4Niw3MDk1NjUxMTcsMTk5NzQ1OTI0NiwtMTM2MDY3
 NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3Nz
 IyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0x
