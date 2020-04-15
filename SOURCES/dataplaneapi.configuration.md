@@ -35,12 +35,14 @@ Socket specification is stored in the HAProxy configuration file inside the top-
  - Add the following to the HAProxy configuration file
    **/etc/haproxy/haproxy.cfg**:
 
-       userlist dataplaneapi
-           user dataplaneapi insecure-password mypassword
+
+       global
+           stats socket /var/run/haproxy.sock user haproxy group haproxy mode 660 level admin
+
 
  - List item
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NTkxNTA3OSwtMTgyMDgxMDUzOSwxNT
+eyJoaXN0b3J5IjpbLTI3OTQ3NTAzNywtMTgyMDgxMDUzOSwxNT
 kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
