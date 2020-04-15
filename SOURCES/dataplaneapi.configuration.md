@@ -45,9 +45,12 @@ Restart HAProxy so the socket can be created.
  - To enable the **dataplaneapi** service unit, so that it starts on system boot, run the following command (also make sure the haproxy service is enabled):
 
 
-       $ 
-       
+       $ sudo systemctl enable dataplaneapi.service
+       Created symlink /etc/systemd/system/multi-user.target.wants/dataplaneapi.service → /usr/lib/systemd/system/dataplaneapi.service.
+       $ sudo systemctl is-enabled haproxy
+       enabled
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzM4ODE0NSwtMTgyMDgxMDUzOSwxNT
+eyJoaXN0b3J5IjpbLTcxODU5Nzg1MiwtMTgyMDgxMDUzOSwxNT
 kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
 -->
