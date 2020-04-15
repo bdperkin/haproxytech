@@ -223,14 +223,51 @@ Check that the transaction has finished:
 
 View the new configuration file:
 
+    enter code here$ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g' | sed -e 's/^/    /g'
+    {
+        "_version": 2,
+        "data": "
+    global 
+      daemon
+      maxconn 256
+      stats socket /var/run/haproxy.sock user haproxy group haproxy mode 660 level admin
+    
+    defaults 
+      mode http
+      timeout connect 5000ms
+      timeout client 50000ms
+      timeout server 50000ms
+    
+    userlist dataplaneapi 
+      user dataplaneapi insecure-password mypassword
+    
+    frontend test_frontend 
+      mode http
+      maxconn 2000
+      bind *:9433 name http
+      default_backend test_backend
+    
+    backend test_backend 
+      mode http
+      balance roundrobin
+      option httpchk HEAD /check HTTP/1.1
+      server server1 127.0.0.1:8080 check maxconn 30 weight 100
+      server server2 127.0.0.2:8080 check maxconn 30 weight 100
+      server server3 127.0.0.3:8080 check maxconn 30 weight 100
+    
+    listen http-in 
+      bind *:8000
+      server server1 127.0.0.1:80 maxconn 32
+    "
+    }
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4Mzc2MjMwLC03MjY2NjA4ODAsLTE1MD
-E1NjE5ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2Nzcz
-NTEsLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMj
-ksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3
-NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MT
-A1MzksMTU5MjQ0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
-
+eyJoaXN0b3J5IjpbLTIwNTYxNjU3MjksLTcyNjY2MDg4MCwtMT
+UwMTU2MTk4Niw3MDk1NjUxMTcsMTk5NzQ1OTI0NiwtMTM2MDY3
+NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAzMzc3Nz
+IyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OTg0LC0x
+Mjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywtMTgyMD
+gxMDUzOSwxNTkyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2
+XX0=
 -->
