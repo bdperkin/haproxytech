@@ -57,9 +57,11 @@ Restart HAProxy so the socket can be created.
        $ sudo systemctl is-active haproxy.service
        active
 
+## Test that the Data Plane API is running properly
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MzA1NzYyNywtMTgyMDgxMDUzOSwxNT
-kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbMTgyMzgxNjk0OSwxODUzMDU3NjI3LC0xOD
+IwODEwNTM5LDE1OTI0NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4
+NTZdfQ==
 -->
