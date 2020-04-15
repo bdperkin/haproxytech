@@ -160,7 +160,7 @@ Second, add a backend:
 
 Third, add servers to the backend:
 
-    enter code here[bperkins@bperkins ~]$ curl -d '{"name": "server1", "address": "127.0.0.1", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    $ curl -d '{"name": "server1", "address": "127.0.0.1", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "address": "127.0.0.1",
         "check": "enabled",
@@ -169,7 +169,7 @@ Third, add servers to the backend:
         "port": 8080,
         "weight": 100
     }
-[bperkins@bperkins ~]$ curl -d '{"name": "server2", "address": "127.0.0.2", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    $ curl -d '{"name": "server2", "address": "127.0.0.2", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "address": "127.0.0.2",
         "check": "enabled",
@@ -178,7 +178,7 @@ Third, add servers to the backend:
         "port": 8080,
         "weight": 100
     }
-[bperkins@bperkins ~]$ curl -d '{"name": "server3", "address": "127.0.0.3", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
+    $ curl -d '{"name": "server3", "address": "127.0.0.3", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool | sed -e 's/^/    /g'
     {
         "address": "127.0.0.3",
         "check": "enabled",
@@ -190,7 +190,7 @@ Third, add servers to the backend:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NjkyNzM1MSw3MDk1NjUxMTcsMTk5Nz
+eyJoaXN0b3J5IjpbMTI0MzE2MjQ3NCw3MDk1NjUxMTcsMTk5Nz
 Q1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4
 MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNz
 MsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1
