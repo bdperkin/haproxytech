@@ -40,9 +40,7 @@ Socket specification is stored in the HAProxy configuration file inside the top-
            stats socket /var/run/haproxy.sock user haproxy group haproxy mode 660 level admin
 
 
- - List item
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3OTQ3NTAzNywtMTgyMDgxMDUzOSwxNT
-kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbMTk5MTUyMzYxLC0xODIwODEwNTM5LDE1OT
+I0NDU5MDYsMjU5MTgyMTYwLDE4MDM4MDc4NTZdfQ==
 -->
