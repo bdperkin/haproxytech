@@ -9,7 +9,7 @@
 
 # https://github.com/haproxytech/dataplaneapi
 %global goipath         github.com/haproxytech/dataplaneapi
-Version:                1.2.4
+Version:                1.2.5
 
 %gometa
 
@@ -20,7 +20,7 @@ HAProxy Data Plane API.}
 %global godocs          README.md CONTRIBUTING.md
 
 Name:           %{goname}
-Release:        7%{?dist}
+Release:        1%{?dist}
 Summary:        HAProxy Data Plane API
 
 Group:          System Environment/Daemons
@@ -48,11 +48,11 @@ BuildRequires:  golang(github.com/go-openapi/spec)
 BuildRequires:  golang(github.com/go-openapi/strfmt)
 BuildRequires:  golang(github.com/go-openapi/swag)
 BuildRequires:  golang(github.com/go-openapi/validate)
-BuildRequires:  golang(github.com/haproxytech/client-native) >= 1.2.6
-BuildRequires:  golang(github.com/haproxytech/client-native/configuration) >= 1.2.6
-BuildRequires:  golang(github.com/haproxytech/client-native/runtime) >= 1.2.6
-BuildRequires:  golang(github.com/haproxytech/config-parser) >= 1.2.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 1.2.0
+BuildRequires:  golang(github.com/haproxytech/client-native) >= 1.2.7
+BuildRequires:  golang(github.com/haproxytech/client-native/configuration) >= 1.2.7
+BuildRequires:  golang(github.com/haproxytech/client-native/runtime) >= 1.2.7
+BuildRequires:  golang(github.com/haproxytech/config-parser) >= 2.0.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 2.0.0
 BuildRequires:  golang(github.com/haproxytech/models) >= 1.2.4
 BuildRequires:  golang(github.com/jessevdk/go-flags)
 BuildRequires:  golang(github.com/rs/cors)
@@ -128,25 +128,28 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
-* Tue Apr 14 14:27:35 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-7
+* Wed Apr 15 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.5-1
+- Update to version 1.2.5
+
+* Tue Apr 14 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-7
 - Change haproxy requires to >= 2.0 as 1.9 was never packaged
 - Add specific versions for haproxytech BuildRequires
 
-* Wed Mar 04 14:54:06 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-6
+* Wed Mar 04 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-6
 - Use global instead of define macro
 - Remove defattr macro that is not needed
 
-* Mon Mar 02 15:30:56 EST 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-5
+* Mon Mar 02 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-5
 - Clean changelog
 
-* Thu Nov 21 13:50:08 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-4
+* Thu Nov 21 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-4
 - Suggest logrotate and fix logrotate configuration
 
-* Wed Nov 20 22:03:49 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-3
+* Wed Nov 20 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-3
 - Add man page
 
-* Wed Nov 13 12:25:57 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-2
+* Wed Nov 13 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-2
 - Implement systemd
 
-* Wed Nov 13 12:25:57 UTC 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-1
+* Wed Nov 13 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-1
 - Initial package
