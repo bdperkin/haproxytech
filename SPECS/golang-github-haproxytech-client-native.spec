@@ -24,14 +24,14 @@ Source0:        %{gosource}
 BuildRequires:  golang(github.com/go-openapi/errors)
 BuildRequires:  golang(github.com/go-openapi/strfmt)
 BuildRequires:  golang(github.com/google/uuid)
-BuildRequires:  golang(github.com/haproxytech/config-parser) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/common) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/errors) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/params) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/filters) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/http/actions) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/tcp/actions) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 2.0.0
+BuildRequires:  golang(github.com/haproxytech/config-parser) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/common) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/errors) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/params) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/filters) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/http/actions) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/tcp/actions) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/types) = 1.2.0
 BuildRequires:  golang(github.com/haproxytech/models) >= 1.2.4
 BuildRequires:  golang(github.com/mitchellh/mapstructure)
 BuildRequires:  golang(github.com/pkg/errors)

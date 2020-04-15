@@ -51,8 +51,8 @@ BuildRequires:  golang(github.com/go-openapi/validate)
 BuildRequires:  golang(github.com/haproxytech/client-native) >= 1.2.7
 BuildRequires:  golang(github.com/haproxytech/client-native/configuration) >= 1.2.7
 BuildRequires:  golang(github.com/haproxytech/client-native/runtime) >= 1.2.7
-BuildRequires:  golang(github.com/haproxytech/config-parser) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 2.0.0
+BuildRequires:  golang(github.com/haproxytech/config-parser) = 1.2.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/types) = 1.2.0
 BuildRequires:  golang(github.com/haproxytech/models) >= 1.2.4
 BuildRequires:  golang(github.com/jessevdk/go-flags)
 BuildRequires:  golang(github.com/rs/cors)
