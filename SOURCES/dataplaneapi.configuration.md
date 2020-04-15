@@ -129,12 +129,14 @@ First, initialize a transaction:
         "status": "in_progress"
     }
 
+
+Make note of the transaction ID above (78dd7054-c83c-4408-bf68-ddc1c0289054 in this case).  Subsequent calls during this use case 
 Second, add a backend:
 
     enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDM2MjU3NTYsLTEzNjA2NzczNTEsLT
+eyJoaXN0b3J5IjpbLTEwNDA5Nzg5MjEsLTEzNjA2NzczNTEsLT
 IwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3
 NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5Mj
 Y1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1Mzks
