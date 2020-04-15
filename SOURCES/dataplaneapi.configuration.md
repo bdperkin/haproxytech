@@ -31,7 +31,16 @@ There is no need to restart HAProxy for changes to the **userlist** section.  Th
 ## Configure HAProxy socket
 The Data Plane API requires read and write access to the HAProxy socket to function.
 Socket specification is stored in the HAProxy configuration file inside the top-level **global** section.
+
+ - Add the following to the HAProxy configuration file
+   **/etc/haproxy/haproxy.cfg** where the **userlist** value matches the **USERLIST** value from **/etc/sysconfig/dataplaneapi**:
+
+       userlist dataplaneapi
+           user dataplaneapi insecure-password mypassword
+
+ - List item
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNzQzMjk3MCwtMTgyMDgxMDUzOSwxNT
-kyNDQ1OTA2LDI1OTE4MjE2MCwxODAzODA3ODU2XX0=
+eyJoaXN0b3J5IjpbNTgyNjk5NzUsLTE4MjA4MTA1MzksMTU5Mj
+Q0NTkwNiwyNTkxODIxNjAsMTgwMzgwNzg1Nl19
 -->
