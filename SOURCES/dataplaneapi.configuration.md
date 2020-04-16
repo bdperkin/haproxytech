@@ -313,14 +313,21 @@ First, add an ACL named **is_api**:
 
 Second, add a **use_backend** line that references the **is_api** ACL:
 
-    enter code here
+    $ curl -d '{"id": 0, "cond": "if", "cond_test": "is_api", "name": "test_backend"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/backend_switching_rules?frontend=test_frontend&version=3" | python3 -m json.tool
+    {
+        "cond": "if",
+        "cond_test": "is_api",
+        "id": 0,
+        "name": "test_backend"
+    }
 
+Third, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA4MTMwMDk3LDQ5OTM0OTUxNywtMTUxNj
-A2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MDE1NjE5
-ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2NzczNTEsLT
-IwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3
-NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5Mj
-Y1OCwyMDI1MzY0MTczLDE4NTMwNTc2MjcsLTE4MjA4MTA1Mzks
-MTU5MjQ0NTkwNl19
+eyJoaXN0b3J5IjpbLTIxMzE5NjgxNTksMzA4MTMwMDk3LDQ5OT
+M0OTUxNywtMTUxNjA2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4
+ODAsLTE1MDE1NjE5ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLT
+EzNjA2NzczNTEsLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEw
+MzM3NzcyMjksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNT
+k4NCwtMTI3NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2Mjcs
+LTE4MjA4MTA1MzldfQ==
 -->
