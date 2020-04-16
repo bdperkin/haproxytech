@@ -337,7 +337,7 @@ Fourth, add an inline ACL that denies all requests except those from **localhost
 
 Finally, view the configuration:
 
-    enter code here$ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g' | sed -e 's/^/    /g'
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
     {
         "_version": 6,
         "data": "
@@ -379,7 +379,7 @@ Finally, view the configuration:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4NTQ5OTU3MiwtODA0NjgxMzI2LDQ3OT
+eyJoaXN0b3J5IjpbLTUzNzE4NjM1MCwtODA0NjgxMzI2LDQ3OT
 cxMDEyLDEzOTExOTI1MDksMzA4MTMwMDk3LDQ5OTM0OTUxNywt
 MTUxNjA2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MD
 E1NjE5ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2Nzcz
