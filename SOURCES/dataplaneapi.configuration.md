@@ -323,14 +323,18 @@ Second, add a **use_backend** line that references the **is_api** ACL:
 
 Third, delete the **use_backend** line (note that we pass the **id** of 0 in the URL):
 
+    $ curl -H "Content-Type: application/json" -X DELETE -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/backend_switching_rules/0?frontend=test_frontend&version=4"
+
+Fourth, add an inline ACL that denies all requests except those from **localhost**:
+
     enter code here
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5MTE5MjUwOSwzMDgxMzAwOTcsNDk5Mz
-Q5NTE3LC0xNTE2MDYzMjc0LC04NzI2MjM5MzEsLTcyNjY2MDg4
-MCwtMTUwMTU2MTk4Niw3MDk1NjUxMTcsMTk5NzQ1OTI0NiwtMT
-M2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAz
-Mzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OT
-g0LC0xMjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywt
-MTgyMDgxMDUzOV19
+eyJoaXN0b3J5IjpbNDc5NzEwMTIsMTM5MTE5MjUwOSwzMDgxMz
+AwOTcsNDk5MzQ5NTE3LC0xNTE2MDYzMjc0LC04NzI2MjM5MzEs
+LTcyNjY2MDg4MCwtMTUwMTU2MTk4Niw3MDk1NjUxMTcsMTk5Nz
+Q1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4
+MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNz
+MsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1
+MzA1NzYyN119
 -->
