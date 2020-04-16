@@ -327,14 +327,21 @@ Third, delete the **use_backend** line (note that we pass the **id** of 0 in the
 
 Fourth, add an inline ACL that denies all requests except those from **localhost**:
 
-    enter code here
+    $ curl -d '{"id": 0, "cond": "unless", "cond_test": "{ src 127.0.0.1 }", "type": "deny"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/http_request_rules?parent_type=frontend&parent_name=test_frontend&version=5" | python3 -m json.tool
+    {
+        "cond": "unless",
+        "cond_test": "{ src 127.0.0.1 }",
+        "id": 0,
+        "type": "deny"
+    }
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc5NzEwMTIsMTM5MTE5MjUwOSwzMDgxMz
-AwOTcsNDk5MzQ5NTE3LC0xNTE2MDYzMjc0LC04NzI2MjM5MzEs
-LTcyNjY2MDg4MCwtMTUwMTU2MTk4Niw3MDk1NjUxMTcsMTk5Nz
-Q1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4
-MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNz
-MsNzMzMjE1OTg0LC0xMjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1
-MzA1NzYyN119
+eyJoaXN0b3J5IjpbMTMxMDA0MjcyLDQ3OTcxMDEyLDEzOTExOT
+I1MDksMzA4MTMwMDk3LDQ5OTM0OTUxNywtMTUxNjA2MzI3NCwt
+ODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MDE1NjE5ODYsNzA5NT
+Y1MTE3LDE5OTc0NTkyNDYsLTEzNjA2NzczNTEsLTIwNjA4NTgy
+NTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3NzQ0MDY2LC
+0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3NjE5MjY1OCwyMDI1
+MzY0MTczXX0=
 -->
