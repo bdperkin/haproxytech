@@ -337,14 +337,53 @@ Fourth, add an inline ACL that denies all requests except those from **localhost
 
 Finally, view the configuration:
 
-    enter code here
+    enter code here$ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g' | sed -e 's/^/    /g'
+    {
+        "_version": 6,
+        "data": "
+    global 
+      daemon
+      maxconn 256
+      stats socket /var/run/haproxy.sock user haproxy group haproxy mode 660 level admin
+    
+    defaults 
+      mode http
+      timeout connect 5000ms
+      timeout client 50000ms
+      timeout server 50000ms
+    
+    userlist dataplaneapi 
+      user dataplaneapi insecure-password mypassword
+    
+    frontend test_frontend 
+      mode http
+      maxconn 2000
+      bind *:9433 name http
+      acl is_api path_beg /api
+      http-request deny deny_status 0 unless { src 127.0.0.1 }
+      default_backend test_backend
+    
+    backend test_backend 
+      mode http
+      balance roundrobin
+      option httpchk HEAD /check HTTP/1.1
+      server server1 127.0.0.1:8080 check maxconn 30 weight 100
+      server server2 127.0.0.2:8080 check maxconn 30 weight 100
+      server server3 127.0.0.3:8080 check maxconn 30 weight 100
+    
+    listen http-in 
+      bind *:8000
+      server server1 127.0.0.1:80 maxconn 32
+    "
+    }
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwNDY4MTMyNiw0Nzk3MTAxMiwxMzkxMT
-kyNTA5LDMwODEzMDA5Nyw0OTkzNDk1MTcsLTE1MTYwNjMyNzQs
-LTg3MjYyMzkzMSwtNzI2NjYwODgwLC0xNTAxNTYxOTg2LDcwOT
-U2NTExNywxOTk3NDU5MjQ2LC0xMzYwNjc3MzUxLC0yMDYwODU4
-MjU5LC0xODEyMDgxMjU4LC0xMDMzNzc3MjI5LDEzNzc0NDA2Ni
-wtMTIwNzExNjA3Myw3MzMyMTU5ODQsLTEyNzYxOTI2NTgsMjAy
-NTM2NDE3M119
+eyJoaXN0b3J5IjpbMjA4NTQ5OTU3MiwtODA0NjgxMzI2LDQ3OT
+cxMDEyLDEzOTExOTI1MDksMzA4MTMwMDk3LDQ5OTM0OTUxNywt
+MTUxNjA2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MD
+E1NjE5ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2Nzcz
+NTEsLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMj
+ksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3
+NjE5MjY1OF19
 -->
