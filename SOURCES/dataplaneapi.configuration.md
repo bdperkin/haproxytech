@@ -321,13 +321,16 @@ Second, add a **use_backend** line that references the **is_api** ACL:
         "name": "test_backend"
     }
 
-Third, 
+Third, delete the **use_backend** line (note that we pass the **id** of 0 in the URL):
+
+    enter code here
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzE5NjgxNTksMzA4MTMwMDk3LDQ5OT
-M0OTUxNywtMTUxNjA2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4
-ODAsLTE1MDE1NjE5ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLT
-EzNjA2NzczNTEsLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEw
-MzM3NzcyMjksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNT
-k4NCwtMTI3NjE5MjY1OCwyMDI1MzY0MTczLDE4NTMwNTc2Mjcs
-LTE4MjA4MTA1MzldfQ==
+eyJoaXN0b3J5IjpbMTM5MTE5MjUwOSwzMDgxMzAwOTcsNDk5Mz
+Q5NTE3LC0xNTE2MDYzMjc0LC04NzI2MjM5MzEsLTcyNjY2MDg4
+MCwtMTUwMTU2MTk4Niw3MDk1NjUxMTcsMTk5NzQ1OTI0NiwtMT
+M2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4MTI1OCwtMTAz
+Mzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNzMsNzMzMjE1OT
+g0LC0xMjc2MTkyNjU4LDIwMjUzNjQxNzMsMTg1MzA1NzYyNywt
+MTgyMDgxMDUzOV19
 -->
