@@ -17,7 +17,7 @@ Version:                2.0.0
 HAProxy Data Plane API.}
 
 %global golicenses      LICENSE
-%global godocs          README.md CONTRIBUTING.md
+%global godocs          CONTRIBUTING.md README.md
 
 Name:           %{goname}
 Release:        1%{?dist}
@@ -48,19 +48,22 @@ BuildRequires:  golang(github.com/go-openapi/spec)
 BuildRequires:  golang(github.com/go-openapi/strfmt)
 BuildRequires:  golang(github.com/go-openapi/swag)
 BuildRequires:  golang(github.com/go-openapi/validate)
-BuildRequires:  golang(github.com/haproxytech/client-native) >= 1.2.7
-BuildRequires:  golang(github.com/haproxytech/client-native/configuration) >= 1.2.7
-BuildRequires:  golang(github.com/haproxytech/client-native/runtime) >= 1.2.7
-BuildRequires:  golang(github.com/haproxytech/config-parser) = 1.2.0
-BuildRequires:  golang(github.com/haproxytech/config-parser/types) = 1.2.0
-BuildRequires:  golang(github.com/haproxytech/models) >= 1.2.4
+BuildRequires:  golang(github.com/haproxytech/client-native/v2)
+BuildRequires:  golang(github.com/haproxytech/client-native/v2/configuration)
+BuildRequires:  golang(github.com/haproxytech/client-native/v2/runtime)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/common)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/types)
+BuildRequires:  golang(github.com/haproxytech/models/v2)
 BuildRequires:  golang(github.com/jessevdk/go-flags)
+BuildRequires:  golang(github.com/oklog/ulid)
 BuildRequires:  golang(github.com/rs/cors)
 BuildRequires:  golang(github.com/shirou/gopsutil/host)
 BuildRequires:  golang(github.com/shirou/gopsutil/mem)
 BuildRequires:  golang(github.com/sirupsen/logrus)
 BuildRequires:  golang(golang.org/x/net/netutil)
 BuildRequires:  golang(golang.org/x/sys/unix)
+BuildRequires:  golang(gopkg.in/yaml.v2)
 BuildRequires:  systemd-units
 BuildRequires:  help2man
 BuildRequires:  gzip
@@ -118,7 +121,7 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 
 %files
 %license LICENSE
-%doc README.md CONTRIBUTING.md
+%doc CONTRIBUTING.md README.md
 %{_mandir}/man8/%{gorepo}.8*
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{goname}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{gorepo}
@@ -156,3 +159,4 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 
 * Wed Nov 13 2019 Brandon Perkins <bperkins@redhat.com> - 1.2.4-1
 - Initial package
+
