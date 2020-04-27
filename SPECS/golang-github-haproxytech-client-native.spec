@@ -6,6 +6,8 @@ Version:                2.0.0
 
 %gometa
 
+%global goaltipaths     github.com/haproxytech/client-native/v2
+
 %global common_description %{expand:
 Go client for HAProxy configuration and runtime API.}
 
@@ -25,18 +27,18 @@ BuildRequires:  golang(github.com/go-openapi/errors)
 BuildRequires:  golang(github.com/go-openapi/strfmt)
 BuildRequires:  golang(github.com/google/go-cmp/cmp)
 BuildRequires:  golang(github.com/google/uuid)
-BuildRequires:  golang(github.com/haproxytech/config-parser) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/common) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/errors) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/params) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/filters) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/http/actions) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/stats/settings) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/tcp/actions) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/parsers/tcp/types) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/models) >= 2.0.0
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/common)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/errors)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/params)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/parsers)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/parsers/filters)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/parsers/http/actions)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/parsers/stats/settings)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/parsers/tcp/actions)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/parsers/tcp/types)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/types)
+BuildRequires:  golang(github.com/haproxytech/models/v2)
 BuildRequires:  golang(github.com/mitchellh/mapstructure)
 BuildRequires:  golang(github.com/pkg/errors)
 

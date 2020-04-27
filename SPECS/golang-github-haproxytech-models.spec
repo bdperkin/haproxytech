@@ -6,6 +6,8 @@ Version:                2.0.0
 
 %gometa
 
+%global goaltipaths     github.com/haproxytech/models/v2
+
 %global common_description %{expand:
 HAProxy Go structs for API.}
 

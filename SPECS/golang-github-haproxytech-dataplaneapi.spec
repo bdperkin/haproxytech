@@ -13,6 +13,8 @@ Version:                2.0.0
 
 %gometa
 
+%global goaltipaths     github.com/haproxytech/dataplaneapi/v2
+
 %global common_description %{expand:
 HAProxy Data Plane API.}
 
@@ -48,13 +50,13 @@ BuildRequires:  golang(github.com/go-openapi/spec)
 BuildRequires:  golang(github.com/go-openapi/strfmt)
 BuildRequires:  golang(github.com/go-openapi/swag)
 BuildRequires:  golang(github.com/go-openapi/validate)
-BuildRequires:  golang(github.com/haproxytech/client-native) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/client-native/configuration) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/client-native/runtime) >= 2.0.0
-BuildRequires:  golang(github.com/haproxytech/config-parser) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/common) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/config-parser/types) >= 2.0.1
-BuildRequires:  golang(github.com/haproxytech/models) >= 2.0.0
+BuildRequires:  golang(github.com/haproxytech/client-native/v2)
+BuildRequires:  golang(github.com/haproxytech/client-native/v2/configuration)
+BuildRequires:  golang(github.com/haproxytech/client-native/v2/runtime)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/common)
+BuildRequires:  golang(github.com/haproxytech/config-parser/v2/types)
+BuildRequires:  golang(github.com/haproxytech/models/v2)
 BuildRequires:  golang(github.com/jessevdk/go-flags)
 BuildRequires:  golang(github.com/oklog/ulid)
 BuildRequires:  golang(github.com/rs/cors)
