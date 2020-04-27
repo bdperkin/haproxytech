@@ -2,7 +2,7 @@
 
 # https://github.com/haproxytech/models
 %global goipath         github.com/haproxytech/models
-Version:                1.2.4
+Version:                2.0.0
 
 %gometa
 
@@ -13,7 +13,7 @@ HAProxy Go structs for API.}
 %global godocs          README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        HAProxy Go structs for API
 
 # Upstream license specification: Apache-2.0
@@ -45,6 +45,9 @@ BuildRequires:  golang(github.com/go-openapi/validate)
 %gopkgfiles
 
 %changelog
+* Mon Apr 27 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.0-1
+- Upgrade to version 2.0.0
+
 * Mon Mar 02 2020 Brandon Perkins <bperkins@redhat.com> - 1.2.4-2
 - Clean changelog
 
