@@ -22,7 +22,7 @@ HAProxy Data Plane API.}
 %global godocs          CONTRIBUTING.md README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        HAProxy Data Plane API
 
 Group:          System Environment/Daemons
@@ -86,9 +86,10 @@ Suggests: logrotate
 %goprep
 
 %build
-for cmd in cmd/* ; do
-  %gobuild -o %{gobuilddir}/sbin/$(basename $cmd) %{goipath}/$cmd
-done
+LDFLAGS="-X main.GitRepo=%{url}/archive/v%{version}/%{gorepo}-%{version}.tar.gz "
+LDFLAGS+="-X main.GitTag=v%{version} -X main.GitCommit= -X main.GitDirty= "
+LDFLAGS+="-X main.BuildTime=%(date '+%%Y-%%m-%%dT%%H:%%M:%%S') "
+%gobuild -o %{gobuilddir}/sbin/%{gorepo} %{goipath}/cmd/%{gorepo}/
 mkdir -p %{gobuilddir}/share/man/man8
 help2man -n "%{summary}" -s 8 -o %{gobuilddir}/share/man/man8/%{gorepo}.8 -N --version-string="%{version}" %{gobuilddir}/sbin/%{gorepo}
 gzip %{gobuilddir}/share/man/man8/%{gorepo}.8
@@ -133,6 +134,11 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
+* Tue Apr 28 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.0-2
+- Add LDFLAGS for GitRepo, GitTag, GitCommit, GitDirty, and
+  BuildTime variables
+- Simplify gobuild action to only build dataplaneapi
+
 * Mon Apr 27 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.0-1
 - Upgrade to version 2.0.0
 
