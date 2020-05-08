@@ -9,11 +9,11 @@
 
 # https://github.com/haproxytech/dataplaneapi
 %global goipath         github.com/haproxytech/dataplaneapi
-Version:                2.0.0
+Version:                2.0.1
 
 %gometa
 
-%global goaltipaths     github.com/haproxytech/dataplaneapi/v2
+%global goaltipaths     %{goipath}/v2
 
 %global common_description %{expand:
 HAProxy Data Plane API.}
@@ -22,7 +22,7 @@ HAProxy Data Plane API.}
 %global godocs          CONTRIBUTING.md README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        HAProxy Data Plane API
 
 Group:          System Environment/Daemons
@@ -36,6 +36,7 @@ Source2:        %{gorepo}.logrotate
 Source3:        %{gorepo}.sysconfig
 
 BuildRequires:  golang(github.com/docker/go-units)
+BuildRequires:  golang(github.com/dustinkirkland/golang-petname)
 BuildRequires:  golang(github.com/GehirnInc/crypt)
 BuildRequires:  golang(github.com/GehirnInc/crypt/md5_crypt)
 BuildRequires:  golang(github.com/GehirnInc/crypt/sha256_crypt)
@@ -52,13 +53,13 @@ BuildRequires:  golang(github.com/go-openapi/swag)
 BuildRequires:  golang(github.com/go-openapi/validate)
 BuildRequires:  golang(github.com/haproxytech/client-native/v2)
 BuildRequires:  golang(github.com/haproxytech/client-native/v2/configuration)
+BuildRequires:  golang(github.com/haproxytech/client-native/v2/errors)
 BuildRequires:  golang(github.com/haproxytech/client-native/v2/runtime)
 BuildRequires:  golang(github.com/haproxytech/config-parser/v2)
 BuildRequires:  golang(github.com/haproxytech/config-parser/v2/common)
 BuildRequires:  golang(github.com/haproxytech/config-parser/v2/types)
 BuildRequires:  golang(github.com/haproxytech/models/v2)
 BuildRequires:  golang(github.com/jessevdk/go-flags)
-BuildRequires:  golang(github.com/oklog/ulid)
 BuildRequires:  golang(github.com/rs/cors)
 BuildRequires:  golang(github.com/shirou/gopsutil/host)
 BuildRequires:  golang(github.com/shirou/gopsutil/mem)
@@ -134,6 +135,9 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
+* Fri May 08 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.1-1
+- Update to version 2.0.1
+
 * Tue Apr 28 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.0-2
 - Add LDFLAGS for GitRepo, GitTag, GitCommit, GitDirty, and
   BuildTime variables
