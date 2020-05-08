@@ -6,7 +6,7 @@ Version:                2.0.1
 
 %gometa
 
-%global goaltipaths     github.com/haproxytech/config-parser/v2
+%global goaltipaths     %{goipath}/v2
 
 %global common_description %{expand:
 HAProxy configuration parser.}
