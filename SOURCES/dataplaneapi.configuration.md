@@ -100,7 +100,6 @@ Next, call the **/services/haproxy/runtime/info** method, which returns process 
                 "max_conn": 256,
                 "max_sock": 563,
                 "nbthread": 8,
-                "node": "bperkins.users.ipa.redhat.com",
                 "pid": 1491,
                 "process_num": 1,
                 "processes": 1,
@@ -403,11 +402,11 @@ Finally, view the configuration:
 See the [API specification documentation](https://www.haproxy.com/documentation/dataplaneapi/latest/) for more information about the available commands.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI3OTYyNTEzLC0yMDYzMjQzOTk3LC02Mz
-g4MDM3NDQsMTQ1NzI0MDQ0NiwtODA0NjgxMzI2LDQ3OTcxMDEy
-LDEzOTExOTI1MDksMzA4MTMwMDk3LDQ5OTM0OTUxNywtMTUxNj
-A2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MDE1NjE5
-ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2NzczNTEsLT
-IwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3
-NzQ0MDY2XX0=
+eyJoaXN0b3J5IjpbLTE4MTgzNjc5NCwtMjA2MzI0Mzk5NywtNj
+M4ODAzNzQ0LDE0NTcyNDA0NDYsLTgwNDY4MTMyNiw0Nzk3MTAx
+MiwxMzkxMTkyNTA5LDMwODEzMDA5Nyw0OTkzNDk1MTcsLTE1MT
+YwNjMyNzQsLTg3MjYyMzkzMSwtNzI2NjYwODgwLC0xNTAxNTYx
+OTg2LDcwOTU2NTExNywxOTk3NDU5MjQ2LC0xMzYwNjc3MzUxLC
+0yMDYwODU4MjU5LC0xODEyMDgxMjU4LC0xMDMzNzc3MjI5LDEz
+Nzc0NDA2Nl19
 -->
