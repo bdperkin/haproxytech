@@ -59,9 +59,9 @@ Restart HAProxy so the socket can be created.
 
 ## Test that the Data Plane API is running properly
 Basic testing can be performed by using the **curl** command found in the **curl** package.  It is also suggested to install the **python3-libs** package so that the **json.tool** can be used to validate and pretty-print the JSON responses.
-The "root" of the API is at **/v1**.  The most basic test that can be performed is to get that path:
+The "root" of the API is at **/v2**.  The most basic test that can be performed is to get that path:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/" | python3 -m json.tool
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/" | python3 -m json.tool
     [
         {
             "description": "Return Data Plane API OpenAPI specification",
@@ -82,7 +82,7 @@ The "root" of the API is at **/v1**.  The most basic test that can be performed 
 
 Next, call the **/services/haproxy/info** method, which returns process information:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/info" | python3 -m json.tool
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/info" | python3 -m json.tool
     {
         "haproxy": {
             "pid": 1622051,
@@ -95,7 +95,7 @@ Next, call the **/services/haproxy/info** method, which returns process informat
 
 When fetching data with GET requests you do not need any additional URL parameters.  For example, to get the HAProxy configuration file in plain text, use the **/services/haproxy/configuration/raw** method:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
     {
         "data": "global
         daemon
@@ -122,7 +122,7 @@ When fetching data with GET requests you do not need any additional URL paramete
 Here is how a backend can be created with servers that a frontend binds to.
 First, initialize a transaction:
 
-    $ curl -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions?version=1" | python3 -m json.tool
+    $ curl -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/transactions?version=1" | python3 -m json.tool
     {
         "_version": 1,
         "id": "78dd7054-c83c-4408-bf68-ddc1c0289054",
@@ -132,7 +132,7 @@ First, initialize a transaction:
 
 Make note of the transaction ID above (78dd7054-c83c-4408-bf68-ddc1c0289054 in this case).  Subsequent calls during this transaction will include the **transaction_id** parameter in the URL. To view all transactions, use the following command:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions" | python3 -m json.tool
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/transactions" | python3 -m json.tool
     [
         {
             "_version": 1,
@@ -143,7 +143,7 @@ Make note of the transaction ID above (78dd7054-c83c-4408-bf68-ddc1c0289054 in t
 
 Second, add a backend:
 
-    $ curl -d '{"name": "test_backend", "mode":"http", "balance": {"algorithm":"roundrobin"}, "httpchk": {"method": "HEAD", "uri": "/check", "version": "HTTP/1.1"}}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/backends?transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    $ curl -d '{"name": "test_backend", "mode":"http", "balance": {"algorithm":"roundrobin"}, "httpchk": {"method": "HEAD", "uri": "/check", "version": "HTTP/1.1"}}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/backends?transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "balance": {
             "algorithm": "roundrobin",
@@ -160,7 +160,7 @@ Second, add a backend:
 
 Third, add servers to the backend:
 
-    $ curl -d '{"name": "server1", "address": "127.0.0.1", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    $ curl -d '{"name": "server1", "address": "127.0.0.1", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "address": "127.0.0.1",
         "check": "enabled",
@@ -169,7 +169,7 @@ Third, add servers to the backend:
         "port": 8080,
         "weight": 100
     }
-    $ curl -d '{"name": "server2", "address": "127.0.0.2", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    $ curl -d '{"name": "server2", "address": "127.0.0.2", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "address": "127.0.0.2",
         "check": "enabled",
@@ -178,7 +178,7 @@ Third, add servers to the backend:
         "port": 8080,
         "weight": 100
     }
-    $ curl -d '{"name": "server3", "address": "127.0.0.3", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    $ curl -d '{"name": "server3", "address": "127.0.0.3", "port": 8080, "check": "enabled", "maxconn": 30, "weight": 100}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/servers?backend=test_backend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "address": "127.0.0.3",
         "check": "enabled",
@@ -190,7 +190,7 @@ Third, add servers to the backend:
 
 Fourth, add the frontend:
 
-    $ curl -d '{"name": "test_frontend", "mode": "http", "default_backend": "test_backend", "maxconn": 2000}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/frontends?transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    $ curl -d '{"name": "test_frontend", "mode": "http", "default_backend": "test_backend", "maxconn": 2000}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/frontends?transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "default_backend": "test_backend",
         "maxconn": 2000,
@@ -200,7 +200,7 @@ Fourth, add the frontend:
 
 Fifth, add a **bind** line to the frontend:
 
-    $ curl -d '{"name": "http", "address": "*", "port": 9433}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/binds?frontend=test_frontend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    $ curl -d '{"name": "http", "address": "*", "port": 9433}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/binds?frontend=test_frontend&transaction_id=78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "address": "*",
         "name": "http",
@@ -209,7 +209,7 @@ Fifth, add a **bind** line to the frontend:
 
 Finally, after the transaction is complete, apply the changes:
 
-    $ curl -H "Content-Type: application/json" -X PUT -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions/78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
+    $ curl -H "Content-Type: application/json" -X PUT -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/transactions/78dd7054-c83c-4408-bf68-ddc1c0289054" | python3 -m json.tool
     {
         "_version": 1,
         "id": "78dd7054-c83c-4408-bf68-ddc1c0289054",
@@ -218,12 +218,12 @@ Finally, after the transaction is complete, apply the changes:
 
 Check that the transaction has finished:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/transactions" | python3 -m json.tool
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/transactions" | python3 -m json.tool
     []
 
 View the new configuration file:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
     {
         "_version": 2,
         "data": "
@@ -303,7 +303,7 @@ The data field should match the configuration found in **/etc/haproxy/haproxy.cf
 A final example is to add an ACL to a frontend.
 First, add an ACL named **is_api**:
 
-    $ curl -d '{"id": 0, "acl_name": "is_api", "criterion": "path_beg", "value": "/api"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/acls?parent_type=frontend&parent_name=test_frontend&version=2" | python3 -m json.tool
+    $ curl -d '{"id": 0, "acl_name": "is_api", "criterion": "path_beg", "value": "/api"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/acls?parent_type=frontend&parent_name=test_frontend&version=2" | python3 -m json.tool
     {
         "acl_name": "is_api",
         "criterion": "path_beg",
@@ -313,7 +313,7 @@ First, add an ACL named **is_api**:
 
 Second, add a **use_backend** line that references the **is_api** ACL:
 
-    $ curl -d '{"id": 0, "cond": "if", "cond_test": "is_api", "name": "test_backend"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/backend_switching_rules?frontend=test_frontend&version=3" | python3 -m json.tool
+    $ curl -d '{"id": 0, "cond": "if", "cond_test": "is_api", "name": "test_backend"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/backend_switching_rules?frontend=test_frontend&version=3" | python3 -m json.tool
     {
         "cond": "if",
         "cond_test": "is_api",
@@ -323,11 +323,11 @@ Second, add a **use_backend** line that references the **is_api** ACL:
 
 Third, delete the **use_backend** line (note that we pass the **id** of 0 in the URL):
 
-    $ curl -H "Content-Type: application/json" -X DELETE -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/backend_switching_rules/0?frontend=test_frontend&version=4"
+    $ curl -H "Content-Type: application/json" -X DELETE -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/backend_switching_rules/0?frontend=test_frontend&version=4"
 
 Fourth, add an inline ACL that denies all requests except those from **localhost**:
 
-    $ curl -d '{"id": 0, "cond": "unless", "cond_test": "{ src 127.0.0.1 }", "type": "deny"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/http_request_rules?parent_type=frontend&parent_name=test_frontend&version=5" | python3 -m json.tool
+    $ curl -d '{"id": 0, "cond": "unless", "cond_test": "{ src 127.0.0.1 }", "type": "deny"}' -H "Content-Type: application/json" -X POST -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/http_request_rules?parent_type=frontend&parent_name=test_frontend&version=5" | python3 -m json.tool
     {
         "cond": "unless",
         "cond_test": "{ src 127.0.0.1 }",
@@ -337,7 +337,7 @@ Fourth, add an inline ACL that denies all requests except those from **localhost
 
 Finally, view the configuration:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v1/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/configuration/raw" | python3 -m json.tool | sed -e 's/\\n/\n/g'
     {
         "_version": 6,
         "data": "
@@ -380,11 +380,11 @@ Finally, view the configuration:
 See the [API specification documentation](https://www.haproxy.com/documentation/dataplaneapi/latest/) for more information about the available commands.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1NzI0MDQ0NiwtODA0NjgxMzI2LDQ3OT
-cxMDEyLDEzOTExOTI1MDksMzA4MTMwMDk3LDQ5OTM0OTUxNywt
-MTUxNjA2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MD
-E1NjE5ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2Nzcz
-NTEsLTIwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMj
-ksMTM3NzQ0MDY2LC0xMjA3MTE2MDczLDczMzIxNTk4NCwtMTI3
-NjE5MjY1OF19
+eyJoaXN0b3J5IjpbLTYzODgwMzc0NCwxNDU3MjQwNDQ2LC04MD
+Q2ODEzMjYsNDc5NzEwMTIsMTM5MTE5MjUwOSwzMDgxMzAwOTcs
+NDk5MzQ5NTE3LC0xNTE2MDYzMjc0LC04NzI2MjM5MzEsLTcyNj
+Y2MDg4MCwtMTUwMTU2MTk4Niw3MDk1NjUxMTcsMTk5NzQ1OTI0
+NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OSwtMTgxMjA4MTI1OC
+wtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEyMDcxMTYwNzMsNzMz
+MjE1OTg0XX0=
 -->
