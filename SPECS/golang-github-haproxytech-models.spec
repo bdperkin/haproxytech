@@ -2,11 +2,11 @@
 
 # https://github.com/haproxytech/models
 %global goipath         github.com/haproxytech/models
-Version:                2.0.0
+Version:                2.0.1
 
 %gometa
 
-%global goaltipaths     github.com/haproxytech/models/v2
+%global goaltipaths     %{goipath}/v2
 
 %global common_description %{expand:
 HAProxy Go structs for API.}
@@ -47,6 +47,9 @@ BuildRequires:  golang(github.com/go-openapi/validate)
 %gopkgfiles
 
 %changelog
+* Fri May 08 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.1-1
+- Update to version 2.0.1
+
 * Mon Apr 27 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.0-1
 - Upgrade to version 2.0.0
 

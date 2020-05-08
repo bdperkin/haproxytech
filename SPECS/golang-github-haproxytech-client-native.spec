@@ -2,11 +2,11 @@
 
 # https://github.com/haproxytech/client-native
 %global goipath         github.com/haproxytech/client-native
-Version:                2.0.0
+Version:                2.0.1
 
 %gometa
 
-%global goaltipaths     github.com/haproxytech/client-native/v2
+%global goaltipaths     %{goipath}/v2
 
 %global common_description %{expand:
 Go client for HAProxy configuration and runtime API.}
@@ -67,6 +67,9 @@ rm runtime/README.md
 %gopkgfiles
 
 %changelog
+* Fri May 08 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.1-1
+- Update to version 2.0.1
+
 * Mon Apr 27 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.0-1
 - Upgrade to version 2.0.0
 
