@@ -85,18 +85,36 @@ The "root" of the API is at **/v2**.  The most basic test that can be performed 
         }
     ]
 
-Next, call the **/services/haproxy/info** method, which returns process information:
+Next, call the **/services/haproxy/runtime/info** method, which returns process information:
 
-    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/info" | python3 -m json.tool
-    {
-        "haproxy": {
-            "pid": 1622051,
-            "processes": 1,
-            "release_date": "2019-12-21",
-            "uptime": 16985,
-            "version": "2.0.12"
+    $ curl -H "Content-Type: application/json" -X GET -S -s -u dataplaneapi:mypassword "http://localhost:5555/v2/services/haproxy/runtime/info" | python3 -m json.tool
+    [
+        {
+            "info": {
+                "cum_conns": 4,
+                "cum_req": 4,
+                "hard_max_conn": 256,
+                "idle_pct": 100,
+                "jobs": 5,
+                "listeners": 4,
+                "max_conn": 256,
+                "max_sock": 563,
+                "nbthread": 8,
+                "node": "bperkins.users.ipa.redhat.com",
+                "pid": 1491,
+                "process_num": 1,
+                "processes": 1,
+                "release_date": "2020-04-02",
+                "run_queue": 1,
+                "tasks": 35,
+                "total_bytes_out": 5214,
+                "ulimit_n": 563,
+                "uptime": 121458,
+                "version": "2.0.14",
+            },
+            "runtimeAPI": "/var/run/haproxy.sock"
         }
-    }
+    ]
 
 When fetching data with GET requests you do not need any additional URL parameters.  For example, to get the HAProxy configuration file in plain text, use the **/services/haproxy/configuration/raw** method:
 
@@ -385,11 +403,11 @@ Finally, view the configuration:
 See the [API specification documentation](https://www.haproxy.com/documentation/dataplaneapi/latest/) for more information about the available commands.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjMyNDM5OTcsLTYzODgwMzc0NCwxND
-U3MjQwNDQ2LC04MDQ2ODEzMjYsNDc5NzEwMTIsMTM5MTE5MjUw
-OSwzMDgxMzAwOTcsNDk5MzQ5NTE3LC0xNTE2MDYzMjc0LC04Nz
-I2MjM5MzEsLTcyNjY2MDg4MCwtMTUwMTU2MTk4Niw3MDk1NjUx
-MTcsMTk5NzQ1OTI0NiwtMTM2MDY3NzM1MSwtMjA2MDg1ODI1OS
-wtMTgxMjA4MTI1OCwtMTAzMzc3NzIyOSwxMzc3NDQwNjYsLTEy
-MDcxMTYwNzNdfQ==
+eyJoaXN0b3J5IjpbODI3OTYyNTEzLC0yMDYzMjQzOTk3LC02Mz
+g4MDM3NDQsMTQ1NzI0MDQ0NiwtODA0NjgxMzI2LDQ3OTcxMDEy
+LDEzOTExOTI1MDksMzA4MTMwMDk3LDQ5OTM0OTUxNywtMTUxNj
+A2MzI3NCwtODcyNjIzOTMxLC03MjY2NjA4ODAsLTE1MDE1NjE5
+ODYsNzA5NTY1MTE3LDE5OTc0NTkyNDYsLTEzNjA2NzczNTEsLT
+IwNjA4NTgyNTksLTE4MTIwODEyNTgsLTEwMzM3NzcyMjksMTM3
+NzQ0MDY2XX0=
 -->
