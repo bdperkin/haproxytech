@@ -2,7 +2,7 @@
 
 # https://github.com/haproxytech/client-native
 %global goipath         github.com/haproxytech/client-native
-Version:                2.0.1
+Version:                2.0.2
 
 %gometa
 
@@ -67,6 +67,9 @@ rm runtime/README.md
 %gopkgfiles
 
 %changelog
+* Mon May 18 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.2-1
+- Update to version 2.0.2
+
 * Fri May 08 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.1-1
 - Update to version 2.0.1
 
