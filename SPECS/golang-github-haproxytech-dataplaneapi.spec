@@ -9,7 +9,7 @@
 
 # https://github.com/haproxytech/dataplaneapi
 %global goipath         github.com/haproxytech/dataplaneapi
-Version:                2.0.2
+Version:                2.0.3
 
 %gometa
 
@@ -135,6 +135,9 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{gorepo}
 %gopkgfiles
 
 %changelog
+* Mon Jun 01 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.3-1
+- Update to version 2.0.3
+
 * Mon May 18 2020 Brandon Perkins <bperkins@redhat.com> - 2.0.2-1
 - Update to version 2.0.2
 
