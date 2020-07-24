@@ -98,6 +98,8 @@ foreach my $pkg (@ARGV) {
     my $version;
     my $goprep            = "";
     my $goprepblock       = 0;
+    my $build             = "";
+    my $buildblock        = 0;
     my $gopkginstall      = "";
     my $gopkginstallblock = 0;
     my $files             = "";
@@ -120,6 +122,15 @@ foreach my $pkg (@ARGV) {
         }
         if ( $goprepblock eq 1 ) {
             $goprep = $goprep . $_;
+        }
+        if ( $_ =~ m/^%install/ ) {
+            $buildblock = 0;
+        }
+        if ( $_ =~ m/^%build/ ) {
+            $buildblock = 1;
+        }
+        if ( $buildblock eq 1 ) {
+            $build = $build . $_;
         }
         if ( $_ =~ m/^%\w+/ ) {
             $gopkginstallblock = 0;
@@ -187,6 +198,9 @@ foreach my $pkg (@ARGV) {
         if ( $_ =~ m/^%goprep/ && $goprep ) {
             print SPEC "$goprep";
         }
+        if ( $_ =~ m/^%build/ && $build ) {
+            print SPEC "$build";
+        }
         if ( $_ =~ m/^%gopkginstall/ && $gopkginstall ) {
             print SPEC "$gopkginstall";
         }
@@ -207,6 +221,15 @@ foreach my $pkg (@ARGV) {
                 $goprepblock = 1;
             }
             if ( $goprepblock eq 1 ) {
+                $_ = "";
+            }
+            if ( $_ =~ m/^%install/ ) {
+                $buildblock = 0;
+            }
+            if ( $_ =~ m/^%build/ ) {
+                $buildblock = 1;
+            }
+            if ( $buildblock eq 1 ) {
                 $_ = "";
             }
             if ( $_ =~ m/^%\w+/ ) {
