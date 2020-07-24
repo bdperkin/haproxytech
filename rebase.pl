@@ -96,6 +96,8 @@ foreach my $pkg (@ARGV) {
     my $goipath;
     my $goaltipaths;
     my $version;
+    my $goprep      = "";
+    my $goprepblock = 0;
 
     foreach (<SPEC>) {
         if ( $_ =~ m/^%global\s+goipath\s+/ ) {
@@ -110,6 +112,15 @@ foreach my $pkg (@ARGV) {
             my $versionline = $_;
             chomp $versionline;
             ( my $x, $version ) = split( /\s+/, $versionline );
+        }
+        if ( $_ =~ m/^%\w+/ ) {
+            $goprepblock = 0;
+        }
+        if ( $_ =~ m/^%goprep/ ) {
+            $goprepblock = 1;
+        }
+        if ( $goprepblock eq 1 ) {
+            $goprep = $goprep . $_;
         }
     }
 
@@ -156,9 +167,21 @@ foreach my $pkg (@ARGV) {
     }
 
     foreach (<NEWSPEC>) {
+        if ( $_ =~ m/^%goprep/ && $goaltipaths ) {
+            print SPEC "$goprep";
+        }
         if ( $body eq 1 ) {
             if ( $_ =~ m/^Version:\s+/ ) {
                 $_ =~ s/\d+/0/g;
+            }
+            if ( $_ =~ m/^%\w+/ ) {
+                $goprepblock = 0;
+            }
+            if ( $_ =~ m/^%goprep/ ) {
+                $goprepblock = 1;
+            }
+            if ( $goprepblock eq 1 ) {
+                $_ = "";
             }
             print SPEC $_;
         }
