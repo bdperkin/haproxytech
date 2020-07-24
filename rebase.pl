@@ -100,6 +100,8 @@ foreach my $pkg (@ARGV) {
     my $goprepblock       = 0;
     my $gopkginstall      = "";
     my $gopkginstallblock = 0;
+    my $files             = "";
+    my $filesblock        = 0;
 
     foreach (<SPEC>) {
         if ( $_ =~ m/^%global\s+goipath\s+/ ) {
@@ -127,6 +129,15 @@ foreach my $pkg (@ARGV) {
         }
         if ( $gopkginstallblock eq 1 ) {
             $gopkginstall = $gopkginstall . $_;
+        }
+        if ( $_ =~ m/^%gopkgfiles/ ) {
+            $filesblock = 0;
+        }
+        if ( $_ =~ m/^%files/ ) {
+            $filesblock = 1;
+        }
+        if ( $filesblock eq 1 ) {
+            $files = $files . $_;
         }
     }
 
@@ -173,11 +184,14 @@ foreach my $pkg (@ARGV) {
     }
 
     foreach (<NEWSPEC>) {
-        if ( $_ =~ m/^%goprep/ && $goaltipaths ) {
+        if ( $_ =~ m/^%goprep/ && $goprep ) {
             print SPEC "$goprep";
         }
-        if ( $_ =~ m/^%gopkginstall/ && $goaltipaths ) {
+        if ( $_ =~ m/^%gopkginstall/ && $gopkginstall ) {
             print SPEC "$gopkginstall";
+        }
+        if ( $_ =~ m/^%files/ && $files ) {
+            print SPEC "$files";
         }
         if ( $body eq 1 ) {
             if ( $_ =~ m/^Version:\s+/ ) {
@@ -202,6 +216,15 @@ foreach my $pkg (@ARGV) {
                 $gopkginstallblock = 1;
             }
             if ( $gopkginstallblock eq 1 ) {
+                $_ = "";
+            }
+            if ( $_ =~ m/^%gopkgfiles/ ) {
+                $filesblock = 0;
+            }
+            if ( $_ =~ m/^%files/ ) {
+                $filesblock = 1;
+            }
+            if ( $filesblock eq 1 ) {
                 $_ = "";
             }
             print SPEC $_;
