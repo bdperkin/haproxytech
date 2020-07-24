@@ -96,8 +96,10 @@ foreach my $pkg (@ARGV) {
     my $goipath;
     my $goaltipaths;
     my $version;
-    my $goprep      = "";
-    my $goprepblock = 0;
+    my $goprep            = "";
+    my $goprepblock       = 0;
+    my $gopkginstall      = "";
+    my $gopkginstallblock = 0;
 
     foreach (<SPEC>) {
         if ( $_ =~ m/^%global\s+goipath\s+/ ) {
@@ -108,11 +110,6 @@ foreach my $pkg (@ARGV) {
         if ( $_ =~ m/^%global\s+goaltipaths\s+/ ) {
             $goaltipaths = $_;
         }
-        if ( $_ =~ m/^Version:\s+/ ) {
-            my $versionline = $_;
-            chomp $versionline;
-            ( my $x, $version ) = split( /\s+/, $versionline );
-        }
         if ( $_ =~ m/^%\w+/ ) {
             $goprepblock = 0;
         }
@@ -121,6 +118,15 @@ foreach my $pkg (@ARGV) {
         }
         if ( $goprepblock eq 1 ) {
             $goprep = $goprep . $_;
+        }
+        if ( $_ =~ m/^%\w+/ ) {
+            $gopkginstallblock = 0;
+        }
+        if ( $_ =~ m/^%gopkginstall/ ) {
+            $gopkginstallblock = 1;
+        }
+        if ( $gopkginstallblock eq 1 ) {
+            $gopkginstall = $gopkginstall . $_;
         }
     }
 
@@ -170,8 +176,14 @@ foreach my $pkg (@ARGV) {
         if ( $_ =~ m/^%goprep/ && $goaltipaths ) {
             print SPEC "$goprep";
         }
+        if ( $_ =~ m/^%gopkginstall/ && $goaltipaths ) {
+            print SPEC "$gopkginstall";
+        }
         if ( $body eq 1 ) {
             if ( $_ =~ m/^Version:\s+/ ) {
+                my $versionline = $_;
+                chomp $versionline;
+                ( my $x, $version ) = split( /\s+/, $versionline );
                 $_ =~ s/\d+/0/g;
             }
             if ( $_ =~ m/^%\w+/ ) {
@@ -181,6 +193,15 @@ foreach my $pkg (@ARGV) {
                 $goprepblock = 1;
             }
             if ( $goprepblock eq 1 ) {
+                $_ = "";
+            }
+            if ( $_ =~ m/^%\w+/ ) {
+                $gopkginstallblock = 0;
+            }
+            if ( $_ =~ m/^%gopkginstall/ ) {
+                $gopkginstallblock = 1;
+            }
+            if ( $gopkginstallblock eq 1 ) {
                 $_ = "";
             }
             print SPEC $_;
