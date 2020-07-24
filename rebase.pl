@@ -245,6 +245,14 @@ foreach my $pkg (@ARGV) {
     my $scriptsdone = 0;
 
     foreach (<NEWSPEC>) {
+        if ( $_ =~ m/^BuildRequires:/ ) {
+            $reqswitch = 1;
+        }
+        if ( $reqswitch eq 1 && $_ !~ m/^BuildRequires:  golang/ ) {
+            chomp $reqs;
+            print SPEC "$reqs";
+            $reqswitch = 0;
+        }
         if ( $_ =~ m/^%goprep/ && $goprep ) {
             print SPEC "$goprep";
         }
@@ -287,12 +295,6 @@ foreach my $pkg (@ARGV) {
             }
             if ( $_ =~ m/^Source0:/ ) {
                 $sourceblock = 1;
-            }
-            if (   $reqswitch eq 1
-                && $_ =~ m/^BuildRequires:/
-                && $_ !~ m/^BuildRequires:  golang/ )
-            {
-                $_ = "";
             }
             if ( $_ =~ m/^%\w+/ ) {
                 $goprepblock = 0;
@@ -349,14 +351,6 @@ foreach my $pkg (@ARGV) {
         }
         if ( $_ =~ m/^Source0:/ && $source ) {
             print SPEC "$source";
-        }
-        if ( $_ =~ m/^BuildRequires:/ ) {
-            $reqswitch = 1;
-        }
-        if ( $reqswitch eq 1 && $_ !~ m/^BuildRequires:  golang/ ) {
-            chomp $reqs;
-            print SPEC "$reqs";
-            $reqswitch = 0;
         }
         if ( $_ =~ m/^%gometa/ && $goaltipaths ) {
             print SPEC "\n$goaltipaths";
