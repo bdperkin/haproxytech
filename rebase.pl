@@ -94,6 +94,7 @@ foreach my $pkg (@ARGV) {
     }
 
     my $goipath;
+    my $project;
     my $goaltipaths;
     my $version;
     my $summary           = "";
@@ -118,6 +119,7 @@ foreach my $pkg (@ARGV) {
             my $goipathline = $_;
             chomp $goipathline;
             ( my $x, my $y, $goipath ) = split( /\s+/, $goipathline );
+            ( $x, $y, $project ) = split( /\//, $goipath );
         }
         if ( $_ =~ m/^%global\s+goaltipaths\s+/ ) {
             $goaltipaths = $_;
@@ -382,4 +384,11 @@ foreach my $pkg (@ARGV) {
 "rpmdev-bumpspec -V -c \"- Update to version $version (#)\" -n $version $spec";
     runcmd();
 
+    my $srcfile = "$project-$version.tar.gz";
+    if ( -f $srcfile ) {
+        unlink($srcfile) or die "Cannot remove $srcfile";
+    }
+
+    $cmd = "wget \"https://$goipath/archive/v$version/$srcfile\"";
+    runcmd();
 }
