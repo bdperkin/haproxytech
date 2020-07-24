@@ -108,6 +108,8 @@ foreach my $pkg (@ARGV) {
     my $buildblock        = 0;
     my $gopkginstall      = "";
     my $gopkginstallblock = 0;
+    my $scripts           = "";
+    my $scriptsblock      = 0;
     my $files             = "";
     my $filesblock        = 0;
 
@@ -174,6 +176,18 @@ foreach my $pkg (@ARGV) {
         if ( $gopkginstallblock eq 1 ) {
             $gopkginstall = $gopkginstall . $_;
         }
+        if ( $_ =~ m/^%gopkgfiles/ || $_ =~ m/^%files/ ) {
+            $scriptsblock = 0;
+        }
+        if ( $scriptsblock eq 2 ) {
+            $scripts = $scripts . $_;
+        }
+        if ( $scriptsblock eq 0 && $_ =~ m/^%gocheck/ ) {
+            $scriptsblock = 1;
+        }
+        if ( $scriptsblock eq 1 && $_ =~ m/^%endif/ ) {
+            $scriptsblock = 2;
+        }
         if ( $_ =~ m/^%gopkgfiles/ ) {
             $filesblock = 0;
         }
@@ -227,7 +241,8 @@ foreach my $pkg (@ARGV) {
         }
     }
 
-    my $reqswitch = 0;
+    my $reqswitch   = 0;
+    my $scriptsdone = 0;
 
     foreach (<NEWSPEC>) {
         if ( $_ =~ m/^%goprep/ && $goprep ) {
@@ -238,6 +253,12 @@ foreach my $pkg (@ARGV) {
         }
         if ( $_ =~ m/^%gopkginstall/ && $gopkginstall ) {
             print SPEC "$gopkginstall";
+        }
+        if ( ( $_ =~ m/^%gopkgfiles/ || $_ =~ m/^%files/ ) && $scripts ) {
+            if ( $scriptsdone eq 0 ) {
+                print SPEC "$scripts";
+                $scriptsdone = 1;
+            }
         }
         if ( $_ =~ m/^%files/ && $files ) {
             print SPEC "$files";
@@ -299,6 +320,18 @@ foreach my $pkg (@ARGV) {
             }
             if ( $gopkginstallblock eq 1 ) {
                 $_ = "";
+            }
+            if ( $_ =~ m/^%gopkgfiles/ || $_ =~ m/^%files/ ) {
+                $scriptsblock = 0;
+            }
+            if ( $scriptsblock eq 2 ) {
+                $_ = "";
+            }
+            if ( $scriptsblock eq 0 && $_ =~ m/^%gocheck/ ) {
+                $scriptsblock = 1;
+            }
+            if ( $scriptsblock eq 1 && $_ =~ m/^%endif/ ) {
+                $scriptsblock = 2;
             }
             if ( $_ =~ m/^%gopkgfiles/ ) {
                 $filesblock = 0;
