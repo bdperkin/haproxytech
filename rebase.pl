@@ -98,6 +98,8 @@ foreach my $pkg (@ARGV) {
     my $version;
     my $summary           = "";
     my $summaryblock      = 0;
+    my $source            = "";
+    my $sourceblock       = 0;
     my $goprep            = "";
     my $goprepblock       = 0;
     my $build             = "";
@@ -124,6 +126,15 @@ foreach my $pkg (@ARGV) {
         }
         if ( $_ =~ m/^Summary:/ ) {
             $summaryblock = 1;
+        }
+        if ( $_ =~ m/^BuildRequires:/ ) {
+            $sourceblock = 0;
+        }
+        if ( $sourceblock eq 1 ) {
+            $source = $source . $_;
+        }
+        if ( $_ =~ m/^Source0:/ ) {
+            $sourceblock = 1;
         }
         if ( $_ =~ m/^%\w+/ ) {
             $goprepblock = 0;
@@ -234,6 +245,15 @@ foreach my $pkg (@ARGV) {
             if ( $_ =~ m/^Summary:/ ) {
                 $summaryblock = 1;
             }
+            if ( $_ =~ m/^BuildRequires:/ ) {
+                $sourceblock = 0;
+            }
+            if ( $sourceblock eq 1 ) {
+                $_ = "";
+            }
+            if ( $_ =~ m/^Source0:/ ) {
+                $sourceblock = 1;
+            }
             if ( $_ =~ m/^%\w+/ ) {
                 $goprepblock = 0;
             }
@@ -274,6 +294,9 @@ foreach my $pkg (@ARGV) {
         }
         if ( $_ =~ m/^Summary:/ && $summary ) {
             print SPEC "$summary";
+        }
+        if ( $_ =~ m/^Source0:/ && $source ) {
+            print SPEC "$source";
         }
         if ( $_ =~ m/^%gometa/ && $goaltipaths ) {
             print SPEC "\n$goaltipaths";
