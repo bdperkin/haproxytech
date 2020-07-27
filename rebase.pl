@@ -380,8 +380,8 @@ foreach my $pkg (@ARGV) {
     close(NEWSPEC);
     close(SPEC);
 
-    $cmd =
-"rpmdev-bumpspec -V -c \"- Update to version $version (#)\" -n $version $spec";
+    $cmd = "rpmdev-bumpspec -V -c \"- Update to version $version (#)\" "
+      . "-n $version $spec";
     runcmd();
 
     my $srcfile = "$project-$version.tar.gz";
@@ -391,4 +391,22 @@ foreach my $pkg (@ARGV) {
 
     $cmd = "wget \"https://$goipath/archive/v$version/$srcfile\"";
     runcmd();
+
+    $cmd = "fedpkg prep";
+    runcmd();
+
+    $cmd = "fedpkg srpm";
+    runcmd();
+
+    $cmd = "fedpkg diff";
+    runcmd();
+
+    $cmd = "fedpkg lint";
+    runcmd();
 }
+
+print "FINISHED.\n";
+
+print "\nContine at:\n"
+  . "https://fedoraproject.org/wiki/"
+  . "Package_maintenance_guide#Common_fedpkg_commands\n\n";
