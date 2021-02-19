@@ -1,12 +1,10 @@
 %bcond_without check
 
-# https://github.com/nathanaelle/syslog5424
-%global goipath         github.com/nathanaelle/syslog5424
+# https://github.com/nathanaelle/syslog5424/v2
+%global goipath         github.com/nathanaelle/syslog5424/v2
 Version:                2.0.5
 
 %gometa
-
-%global goaltipaths     %{goipath}/v2
 
 %global common_description %{expand:
 Log.Logger-friendly RFC-5424 syslog library.}
