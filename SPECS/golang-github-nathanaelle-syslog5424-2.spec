@@ -1,7 +1,8 @@
 %bcond_without check
 
-# https://github.com/nathanaelle/syslog5424/v2
+# https://github.com/nathanaelle/syslog5424
 %global goipath         github.com/nathanaelle/syslog5424/v2
+%global forgeurl        https://github.com/nathanaelle/syslog5424
 Version:                2.0.5
 
 %gometa
