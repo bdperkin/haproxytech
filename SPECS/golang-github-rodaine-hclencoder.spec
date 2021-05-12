@@ -49,6 +49,6 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 %gopkgfiles
 
 %changelog
-* Wed May 12 13:30:17 EDT 2021 Brandon Perkins <bperkins@redhat.com> - 0-0.1.20210512gitaaa140e
+* Wed May 12 2021 Brandon Perkins <bperkins@redhat.com> - 0-0.1.20210512gitaaa140e
 - Initial package
 

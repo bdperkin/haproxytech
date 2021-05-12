@@ -40,6 +40,6 @@ Source0:        %{gosource}
 %gopkgfiles
 
 %changelog
-* Wed May 12 13:54:36 EDT 2021 Brandon Perkins <bperkins@redhat.com> - 0-0.1.20210512git600d898
+* Wed May 12 2021 Brandon Perkins <bperkins@redhat.com> - 0-0.1.20210512git600d898
 - Initial package
 
