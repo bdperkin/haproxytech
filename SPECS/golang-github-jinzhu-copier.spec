@@ -1,8 +1,9 @@
 %bcond_without check
+%global debug_package %{nil}
 
 # https://github.com/jinzhu/copier
 %global goipath         github.com/jinzhu/copier
-Version:                0.3.4
+Version:                0.3.5
 
 %gometa
 
@@ -28,6 +29,9 @@ Source0:        %{gosource}
 %prep
 %goprep
 
+%generate_buildrequires
+%go_generate_buildrequires
+
 %install
 %gopkginstall
 
@@ -39,6 +43,5 @@ Source0:        %{gosource}
 %gopkgfiles
 
 %changelog
-* Mon Dec 13 2021 Brandon Perkins <bperkins@redhat.com> - 0.3.4-1%{?dist}
+* Mon Jan 31 2022 Brandon Perkins <bperkins@redhat.com> - 0.3.5-1
 - Initial package
-
